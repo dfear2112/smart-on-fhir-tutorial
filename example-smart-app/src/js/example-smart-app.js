@@ -57,7 +57,7 @@
           }
 
           // Observations
-          var height = byCodes('8302-2');
+           height = byCodes('8302-2');
           //lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
           // var height = byCodes('8302-2');
