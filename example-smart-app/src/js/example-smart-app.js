@@ -53,14 +53,14 @@
             lname = patient.name[0].family;
           }
 
-           Observations
+           //Observations
           lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
            var height = byCodes('8302-2');
            var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
            var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-           var hdl = byCodes('2085-9');
-           var ldl = byCodes('2089-1');
+          // var hdl = byCodes('2085-9');
+           //var ldl = byCodes('2089-1');
 
 
           var p = defaultPatient();
@@ -70,8 +70,8 @@
           p.lname = lname;
           p.systolicbp = systolicbp;
           p.diastolicbp = diastolicbp;
-          p.hdl = hdl;
-          p.ldl = ldl;
+         // p.hdl = hdl;
+         // p.ldl = ldl;
           
 
           // Observations
@@ -89,8 +89,8 @@
              p.diastolicbp = diastolicbp;
            }
 
-           p.hdl = getQuantityValueAndUnit(hdl[0]);
-           p.ldl = getQuantityValueAndUnit(ldl[0]);
+           //p.hdl = getQuantityValueAndUnit(hdl[0]);
+          // p.ldl = getQuantityValueAndUnit(ldl[0]);
           console.log('p:');
           console.log(p);
           ret.resolve(p);
@@ -168,8 +168,8 @@
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
-    // $('#systolicbp').html(p.systolicbp);
-    // $('#diastolicbp').html(p.diastolicbp);
+     $('#systolicbp').html(p.systolicbp);
+     $('#diastolicbp').html(p.diastolicbp);
     // $('#ldl').html(p.ldl);
     // $('#hdl').html(p.hdl);
   };
