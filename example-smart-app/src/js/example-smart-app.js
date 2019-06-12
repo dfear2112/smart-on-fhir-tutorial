@@ -11,9 +11,10 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        
+        
 
-        // var obv = smart.patient.api.fetchAll({
-        //   type: 'Observation',
+        
         //   query: {
         //     code: {
         //       $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
@@ -27,7 +28,7 @@
           type: 'Observation',
           query: {
             code: {
-              $or: ['http://loinc.org|26478-8', 'http://loinc.org|2345-7']
+              $or: ['http://loinc.org|26478-8', 'http://loinc.org|2345-7', 'http://loinc.org|8302-2' ]
             }
           }
         });
@@ -40,8 +41,10 @@
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
-          console.log(byCodes('26478-8'));
+                    console.log(byCodes('26478-8'));
           console.log(byCodes('2345-7'));
+          console.log(byCodes('8302-2'));
+       
 
           var gender = patient.gender;
 
@@ -54,7 +57,8 @@
           }
 
           // Observations
-          lymph = byCodes('26478-8');
+          var height = byCodes('8302-2');
+          //lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
           // var height = byCodes('8302-2');
           // var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -71,6 +75,7 @@
 
           // Observations
           p.lymph = getQuantityValueAndUnit(lymph[0]);
+          p.height = getQuantityValueAndUnit(height[0]);
 
 
           // Cerner SoF Tutorial Observations
@@ -106,7 +111,8 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
-      lymph: {value: ''}
+      lymph: {value: ''},
+      height: {value: ''}
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
