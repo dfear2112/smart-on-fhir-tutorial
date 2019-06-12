@@ -68,10 +68,10 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
-          //p.systolicbp = systolicbp;
-          //p.diastolicbp = diastolicbp;
-          //p.hdl = hdl;
-          //p.ldl = ldl;
+          p.systolicbp = systolicbp;
+          p.diastolicbp = diastolicbp;
+          p.hdl = hdl;
+          p.ldl = ldl;
           
 
           // Observations
