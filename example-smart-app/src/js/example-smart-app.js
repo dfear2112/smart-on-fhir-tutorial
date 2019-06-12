@@ -68,6 +68,11 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+          //p.systolicbp = systolicbp;
+          //p.diastolicbp = diastolicbp;
+          //p.hdl = hdl;
+          //p.ldl = ldl;
+          
 
           // Observations
           p.lymph = getQuantityValueAndUnit(lymph[0]);
@@ -76,16 +81,16 @@
           // Cerner SoF Tutorial Observations
           // p.height = getQuantityValueAndUnit(height[0]);
 
-          // if (typeof systolicbp != 'undefined')  {
-          //   p.systolicbp = systolicbp;
-          // }
+           if (typeof systolicbp != 'undefined')  {
+             p.systolicbp = systolicbp;
+           }
 
-          // if (typeof diastolicbp != 'undefined') {
-          //   p.diastolicbp = diastolicbp;
-          // }
+           if (typeof diastolicbp != 'undefined') {
+             p.diastolicbp = diastolicbp;
+           }
 
-          // p.hdl = getQuantityValueAndUnit(hdl[0]);
-          // p.ldl = getQuantityValueAndUnit(ldl[0]);
+           p.hdl = getQuantityValueAndUnit(hdl[0]);
+           p.ldl = getQuantityValueAndUnit(ldl[0]);
           console.log('p:');
           console.log(p);
           ret.resolve(p);
@@ -106,7 +111,11 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
-      lymph: {value: ''}
+      lymph: {value: ''},
+      systolicbp: {value: ''},
+      diastolicbp: {value: ''},
+      ldl: {value:''},
+      hdl: {value: ''}
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
