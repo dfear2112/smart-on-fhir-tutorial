@@ -57,7 +57,7 @@
           }
 
           // Observations
-           height = byCodes('8302-2');
+             var height = byCodes('8302-2');
           //lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
           // var height = byCodes('8302-2');
@@ -161,7 +161,7 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#lymph').html(p.lymph);
-    
+    $('#height').html(p.height);
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
