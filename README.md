@@ -1,4 +1,4 @@
-# Disclaimer: I have used this tutorial to learn the basics and syntax of developing a SMART on FHIR app within the HSPC Sandbox. Credit should be given to the origical developers of this tutorial as I have made minor manipulations to better understand the code.
+# Disclaimer: I have used this tutorial to learn the basics and syntax of developing a SMART on FHIR app within the HSPC Sandbox. Credit should be given to the original developers of this tutorial as I have made minor manipulations to better understand the code.
 
 
 # 1. Overview
