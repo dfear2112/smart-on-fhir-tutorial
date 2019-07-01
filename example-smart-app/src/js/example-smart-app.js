@@ -15,7 +15,7 @@
         
 
         
-        //   query: {
+       //   query: {
         //     code: {
         //       $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
         //             'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
@@ -56,7 +56,7 @@
            var ldl = byCodes('2089-1');
 
 
-          var p = defaultPatient();
+       
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -163,3 +163,4 @@
   };
 
 })(window);
+       
