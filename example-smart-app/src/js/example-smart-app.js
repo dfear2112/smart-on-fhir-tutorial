@@ -190,7 +190,7 @@
     $('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
-    $('#serum_glucose').html(p.serum_glucose);
+   // $('#serum_glucose').html(p.serum_glucose);
     
     // Cerner SoF Tutorial Observations
 
