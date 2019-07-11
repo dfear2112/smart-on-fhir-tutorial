@@ -138,7 +138,7 @@
       height: {value: ''},
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
-      serum_glucose: {value: ''}
+      //serum_glucose: {value: ''}
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
