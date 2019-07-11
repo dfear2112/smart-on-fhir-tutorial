@@ -22,7 +22,7 @@
         //     }
         //   }
         // });
-
+// serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
           query: {
@@ -33,6 +33,7 @@
                    'http://loinc.org|55284-4',
                     'http://loinc.org|8480-6',
                     'http://loinc.org|8462-4'
+                    'http://loinc.org|2345-7'
                     
                    ]
             }
@@ -49,6 +50,7 @@
           console.log("byCodes:");
           console.log(byCodes('26478-8'));
           console.log(byCodes('2345-7'));
+          
 
           var gender = patient.gender;
 
@@ -65,6 +67,7 @@
           height = byCodes('8302-2');
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+          serum_glucose = byCodes('2345-7');
           // Cerner SoF Tutorial Observations
           // var height = byCodes('8302-2');
           // var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -83,6 +86,8 @@
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           
+          
+          
            if (typeof systolicbp != 'undefined')  {
              p.systolicbp = systolicbp;
            }
@@ -90,6 +95,9 @@
            if (typeof diastolicbp != 'undefined') {
              p.diastolicbp = diastolicbp;
            }
+          
+          if (typeof serum_glucose != 'undefined') {
+            p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
 
 
 
@@ -130,6 +138,7 @@
       height: {value: ''},
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
+      serum_glucose: {value: ''}
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
@@ -181,6 +190,7 @@
     $('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
+    $('#serum_glucose').html(p.serum_glucose);
     
     // Cerner SoF Tutorial Observations
 
