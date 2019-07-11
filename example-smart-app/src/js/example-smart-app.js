@@ -33,7 +33,7 @@
                    'http://loinc.org|55284-4',
                     'http://loinc.org|8480-6',
                     'http://loinc.org|8462-4',
-                    'http://loinc.org|2345-7'
+                   // 'http://loinc.org|2345-7'
                     
                    ]
             }
@@ -49,7 +49,7 @@
           var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
           console.log(byCodes('26478-8'));
-          console.log(byCodes('2345-7'));
+          //console.log(byCodes('2345-7'));
           
 
           var gender = patient.gender;
@@ -67,7 +67,7 @@
           height = byCodes('8302-2');
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-          serum_glucose = byCodes('2345-7');
+          //serum_glucose = byCodes('2345-7');
           // Cerner SoF Tutorial Observations
           // var height = byCodes('8302-2');
           // var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -96,8 +96,8 @@
              p.diastolicbp = diastolicbp;
            }
           
-          if (typeof serum_glucose != 'undefined') {
-            p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+         // if (typeof serum_glucose != 'undefined') {
+         //   p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
 
 
 
