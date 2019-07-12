@@ -202,7 +202,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
     $('#Mother').html(p.Mother);
-    $('#Father').html(p.serum_glucose);
+    $('#Father').html(p.Father);
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
