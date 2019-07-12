@@ -12,7 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-         var obv = smart.patient.api.search({
+         var fmh = smart.patient.api.search({
            type: 'FamilyMemberHistory',
            query: {
              code: {
