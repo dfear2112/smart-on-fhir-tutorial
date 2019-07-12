@@ -46,7 +46,7 @@
         $.when(pt, obv, fmh).fail(onError);
 
         $.when(pt, obv,fmh).done(function(patient, obv, fmh) {
-          var byCodes = smart.byCodes(obv, 'code');
+          var byCodes = smart.byCodes(obv, fmh, 'code');
           console.log("byCodes:");
           console.log(byCodes('26478-8'));
        
