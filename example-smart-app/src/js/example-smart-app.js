@@ -11,17 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-//Trying to get the Family Member History Reource
-         var fmh = smart.patient.api.fetchAll({
-           type: 'FamilyMemberHistory',
-           query: {
-             code: {
-               $or: ['http://hl7.org/fhir/v3/RoleCode|MTH',
-                     'http://hl7.org/fhir/v3/RoleCode|FTH',
-                      'http://snomed.info/sct|44054006' ]
-             }
-           }
-         });
+
 // serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
@@ -91,6 +81,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+         
 
           // Observations
           p.lymph = getQuantityValueAndUnit(lymph[0]);
@@ -98,7 +89,7 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           
           //FamilyMemberHistory
-
+           p.familyHistoryFetch = familyHistoryFetch;
           
           
            if (typeof systolicbp != 'undefined')  {
@@ -152,8 +143,8 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      Mother: {value:''},
-      Father: {value:''},
+      familyHistoryFetch: {value:''},
+      
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
@@ -206,8 +197,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#Mother').html(p.Mother);
-    $('#Father').html(p.Father);
+    $('#familyHistoryFetch').html(p.familyHistoryFetch)
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
