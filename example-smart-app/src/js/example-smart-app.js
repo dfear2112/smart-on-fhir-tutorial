@@ -12,16 +12,15 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        // var obv = smart.patient.api.fetchAll({
-        //   type: 'Observation',
-        //   query: {
-        //     code: {
-        //       $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-        //             'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-        //             'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
-        //     }
-        //   }
-        // });
+         var obv = smart.patient.api.fetchAll({
+           type: 'FamilyMemberHistory',
+           query: {
+             code: {
+               $or: ['http://hl7.org/fhir/v3/RoleCode|MTH',
+                     'http://hl7.org/fhir/v3/RoleCode|FTH' ]
+             }
+           }
+         });
 // serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
@@ -74,6 +73,10 @@
           // var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           // var hdl = byCodes('2085-9');
           // var ldl = byCodes('2089-1');
+          
+          //FamilyMemberHistory
+          Mother = byCodes('MTH')
+          Father = byCodes ('FTH')
 
 
           var p = defaultPatient();
@@ -86,6 +89,10 @@
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+          
+          //FamilyMemberHistory
+          p.Mother = Mother
+          p.Father = Father
           
           
           
@@ -139,7 +146,9 @@
       height: {value: ''},
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
-      serum_glucose: {value: ''}
+      serum_glucose: {value: ''},
+      Mother: {value:''},
+      Father: {value:''},
 
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
@@ -192,7 +201,8 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    
+    $('#Mother').html(p.Mother);
+    $('#Father').html(p.serum_glucose);
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
