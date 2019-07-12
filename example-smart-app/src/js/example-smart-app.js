@@ -13,7 +13,7 @@
         var pt = patient.read();
 
          var fmh = smart.patient.api.fetchAll({
-           type: 'FamilyMemberHistory.Condition',
+           type: 'FamilyMemberHistory',
            query: {
              code: {
                $or: ['http://hl7.org/fhir/v3/RoleCode|MTH',
