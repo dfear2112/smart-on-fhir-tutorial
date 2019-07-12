@@ -12,7 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-         var fmh = smart.patient.api.search({
+         var fmh = smart.patient.api.fetchAll({
            type: 'FamilyMemberHistory.Condition',
            query: {
              code: {
@@ -43,9 +43,9 @@
         console.log('patient:');
         console.log(patient)
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, fmh).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv,fmh).done(function(patient, obv, fmh) {
           var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
           console.log(byCodes('26478-8'));
