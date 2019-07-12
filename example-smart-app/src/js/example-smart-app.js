@@ -43,10 +43,10 @@
         console.log('patient:');
         console.log(patient)
 
-        $.when(pt, obv, fmh).fail(onError);
+        $.when(pt, obv).fail(onError);
 
-        $.when(pt, obv,fmh).done(function(patient, obv, fmh) {
-          var byCodes = smart.byCodes(obv, fmh, 'code');
+        $.when(pt, obv).done(function(patient, obv) {
+          var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
           console.log(byCodes('26478-8'));
        
@@ -76,8 +76,7 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-          Mother = byCodes('44054006');
-          Father = byCodes ('FTH');
+
 
 
           var p = defaultPatient();
@@ -92,9 +91,7 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           
           //FamilyMemberHistory
-          p.Mother = Mother
-          p.Father = Father
-          
+
           
           
            if (typeof systolicbp != 'undefined')  {
