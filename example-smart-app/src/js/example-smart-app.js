@@ -12,7 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-         var obv = smart.patient.api.fetchAll({
+         var obv = smart.patient.api.search({
            type: 'FamilyMemberHistory',
            query: {
              code: {
@@ -75,8 +75,8 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-          Mother = byCodes('MTH')
-          Father = byCodes ('FTH')
+          Mother = byCodes('MTH');
+          Father = byCodes ('FTH');
 
 
           var p = defaultPatient();
