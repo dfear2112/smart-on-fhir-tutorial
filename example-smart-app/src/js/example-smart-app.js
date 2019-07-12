@@ -6,12 +6,12 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-
+    
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-
+//Trying to get the Family Member History Reource
          var fmh = smart.patient.api.fetchAll({
            type: 'FamilyMemberHistory',
            query: {
@@ -61,6 +61,8 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
+          
+          
 
           // Observations
           lymph = byCodes('26478-8');
@@ -76,7 +78,12 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-
+        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
+        var familyHistoryFetch = $.Deferred();
+        console.log(familyHistoryFetch);
+        
+          
+          
 
 
           var p = defaultPatient();
