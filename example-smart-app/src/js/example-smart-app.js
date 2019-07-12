@@ -76,7 +76,7 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-          Mother = byCodes('MTH');
+          Mother = byCodes('44054006');
           Father = byCodes ('FTH');
 
 
