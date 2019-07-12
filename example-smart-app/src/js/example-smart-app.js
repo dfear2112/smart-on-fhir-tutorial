@@ -13,11 +13,12 @@
         var pt = patient.read();
 
          var fmh = smart.patient.api.search({
-           type: 'FamilyMemberHistory',
+           type: 'FamilyMemberHistory.Condition',
            query: {
              code: {
                $or: ['http://hl7.org/fhir/v3/RoleCode|MTH',
-                     'http://hl7.org/fhir/v3/RoleCode|FTH' ]
+                     'http://hl7.org/fhir/v3/RoleCode|FTH',
+                      'http://snomed.info/sct|44054006' ]
              }
            }
          });
