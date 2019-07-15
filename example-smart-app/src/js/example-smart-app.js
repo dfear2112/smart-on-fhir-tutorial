@@ -30,27 +30,11 @@
           }
         });
         
-        var fmh = smart.patient.api.fetchAll({
-          type: 'FamilyMemberHistory',
-            query: {
-              code: {
-              $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
-                    
-                   ]
-            }
-          }
-        });
-        
-        console.log('patient:');
-        console.log(patient)
 
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          console.log("byCodes:");
-          console.log(byCodes('26478-8'));
-       
           
 
           var gender = patient.gender;
