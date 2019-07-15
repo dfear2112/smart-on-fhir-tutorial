@@ -67,11 +67,11 @@
          // smart.patient.api.search({type: 'FamilyMemberHistory'});
     
           
-           var family = smart.patient.api.fetchAll({type: 'FamilyMemberHistory'});
-            $.when(pt, family).fail(onError);
-            $.when(pt, family).done(function(patient, family){
-            console.log(patient);
-              });
+          // var family = smart.patient.api.fetchAll({type: 'FamilyMemberHistory'});
+          //  $.when(pt, family).fail(onError);
+          //  $.when(pt, family).done(function(patient, family){
+          //  console.log(patient);
+          //    });
 
 
 
