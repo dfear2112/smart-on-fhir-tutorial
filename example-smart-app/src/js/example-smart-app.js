@@ -31,7 +31,7 @@
         });
         
 
-               console.log('patient:');
+        console.log('patient:');
         console.log(patient)
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
@@ -63,12 +63,6 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
-        var familyHistoryFetch = $.Deferred();
-        console.log(familyHistoryFetch);
-        mother = byCodes(fmh, 'MTH');
-        mother = byCodes('MTH');
-        //smart.byCodes(obv, 'code');
 
 
           var p = defaultPatient();
@@ -83,8 +77,7 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           
           //FamilyMemberHistory
-           p.familyHistoryFetch = familyHistoryFetch;
-           p.mother = getQuantityValueAndUnit(mother[0]);
+
           
           
            if (typeof systolicbp != 'undefined')  {
@@ -128,8 +121,6 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      familyHistoryFetch: {value:''},
-      mother: {value:''};
       
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
@@ -177,8 +168,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#familyHistoryFetch').html(p.familyHistoryFetch);
-    $('#mother').html(p.mother);
+
     // Cerner SoF Tutorial Observations
     // $('#height').html(p.height);
     // $('#systolicbp').html(p.systolicbp);
