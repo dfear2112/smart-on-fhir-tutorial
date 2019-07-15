@@ -65,7 +65,7 @@
           
           //FamilyMemberHistory
          // smart.patient.api.search({type: 'FamilyMemberHistory'});
-           var family = smart.patient.api.read({type: 'FamilyMemberHistory'});
+           var family = smart.patient.api.fetchAllwithReferences({type: 'FamilyMemberHistory'});
             family.done(function(patient){
             console.log(patient);
               });
