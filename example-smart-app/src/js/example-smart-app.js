@@ -64,14 +64,14 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
-         // smart.patient.api.search({type: 'FamilyMemberHistory'});
+         //smart.patient.api.search({type: 'FamilyMemberHistory'});
     
           
-          // var family = smart.patient.api.fetchAll({type: 'FamilyMemberHistory'});
-          //  $.when(pt, family).fail(onError);
-          //  $.when(pt, family).done(function(patient, family){
-          //  console.log(patient);
-          //    });
+          var family = smart.patient.api.fetchAll({type: 'FamilyMemberHistory'});
+            $.when(pt, family).fail(onError);
+            $.when(pt, family).done(function(patient, family){
+            console.log(patient);
+              });
 
 
 
@@ -87,7 +87,7 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
 
           //FamilyMemberHistory
-          //p.family = family;
+          p.family = family;
 
 
 
@@ -132,7 +132,7 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      //family: {value:''},
+      family: {value:''},
 
 
       // Cerner SoF Tutorial Observations
@@ -181,7 +181,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    //$('#family').html(p.family);
+    $('#family').html(p.family);
 
     // Cerner SoF Tutorial Observations
 
