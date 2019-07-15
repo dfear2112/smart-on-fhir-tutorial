@@ -25,12 +25,6 @@
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7'
                     
-                   ]
-            }
-          }
-        });
-        
-          var fmh = smart.patient.api.fetchAll({
             type: 'Relationship',
             query: {
               code: {
@@ -40,6 +34,8 @@
             }
           }
         });
+        
+
 
         
         console.log('patient:');
@@ -83,7 +79,7 @@
         var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
         var familyHistoryFetch = $.Deferred();
         console.log(familyHistoryFetch);
-        mother = byCodes(fmh, 'MTH');
+        mother = byCodes('MTH');
         //smart.byCodes(obv, 'code');
           
           
