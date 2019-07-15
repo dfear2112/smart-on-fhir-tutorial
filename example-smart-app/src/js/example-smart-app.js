@@ -29,7 +29,19 @@
             }
           }
         });
+        
+                var fmh = smart.patient.api.fetchAll({
+          type: 'FamilyMemberHistory',
+          query: {
+            code: {
+              $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
+                    
+                   ]
+            }
+          }
+        });
 
+        
         console.log('patient:');
         console.log(patient)
 
@@ -71,7 +83,8 @@
         var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
         var familyHistoryFetch = $.Deferred();
         console.log(familyHistoryFetch);
-        
+        mother = smart.byCodes(fmh, 'MTH');
+        //smart.byCodes(obv, 'code');
           
           
 
@@ -90,6 +103,7 @@
           
           //FamilyMemberHistory
            p.familyHistoryFetch = familyHistoryFetch;
+          p.mother = getQuantityValueAndUnit(mother[0]);
           
           
            if (typeof systolicbp != 'undefined')  {
@@ -144,6 +158,7 @@
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
       familyHistoryFetch: {value:''},
+      mother: {value:''};
       
 
       // Cerner SoF Tutorial Observations
@@ -197,7 +212,8 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#familyHistoryFetch').html(p.familyHistoryFetch)
+    $('#familyHistoryFetch').html(p.familyHistoryFetch);
+    $('#mother').html(p.mother);
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
