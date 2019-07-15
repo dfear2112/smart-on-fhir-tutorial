@@ -103,7 +103,7 @@
           
           //FamilyMemberHistory
            p.familyHistoryFetch = familyHistoryFetch;
-          p.mother = getQuantityValueAndUnit(mother[0]);
+         // p.mother = getQuantityValueAndUnit(mother[0]);
           
           
            if (typeof systolicbp != 'undefined')  {
