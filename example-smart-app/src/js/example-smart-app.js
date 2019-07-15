@@ -66,7 +66,7 @@
           //FamilyMemberHistory
          // smart.patient.api.search({type: 'FamilyMemberHistory'});
            var family = smart.patient.api.fetchAll({type: 'FamilyMemberHistory'});
-            $.when(pt, family).done(function(patient, family){
+            family.done(function(patient){
             console.log(patient);
               });
 
