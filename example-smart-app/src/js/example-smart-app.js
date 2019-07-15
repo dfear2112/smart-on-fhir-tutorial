@@ -46,25 +46,8 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          
-          
-   
-        $.when(pt, fmh).fail(onError);
-
-        $.when(pt, fmh).done(function(patient, fmh) {
-          var byCodes01 = smart.byCodes(fmh, 'code');
-          }
-          
-  
-    
-              //FamilyMemberHistory
-        mother = byCodes01('MTH');
-
-          
-          
-          
-
-          // Observations
+        
+          // Resource: Observations
           lymph = byCodes('26478-8');
           height = byCodes('8302-2');
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -94,7 +77,7 @@
           
           
           //Family History
-          p.mother = mother;
+ 
           
           
            if (typeof systolicbp != 'undefined')  {
@@ -150,8 +133,6 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      familyHistoryFetch: {value:''},
-      mother: {value:''};
       
 
       // Cerner SoF Tutorial Observations
@@ -205,7 +186,6 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#mother').html(p.mother);
     // Cerner SoF Tutorial Observations
 
     // $('#height').html(p.height);
