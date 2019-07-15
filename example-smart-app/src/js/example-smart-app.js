@@ -67,20 +67,20 @@
          //smart.patient.api.search({type: 'FamilyMemberHistory'});
     
           //smart.api.read({type: resourceType, id: resourceId})
-          var family = smart.patient.api.read({
-              type: 'FamilyMemberHistory', 
-              query: {
-              code: {
-              $or: ['MTH'
+         // var family = smart.patient.api.read({
+          //    type: 'FamilyMemberHistory', 
+          //    query: {
+          //    code: {
+           //   $or: ['MTH'
                     
-                   ]
-            }
-          }
-        });)
-            $.when(pt, family).fail(onError);
-            $.when(pt, family).done(function(patient, family){
-            console.log(patient);
-              });
+            //       ]
+          //  }
+         // }
+      //  });)
+        //    $.when(pt, family).fail(onError);
+         //   $.when(pt, family).done(function(patient, family){
+         //   console.log(patient);
+          //    });
             
           
 
