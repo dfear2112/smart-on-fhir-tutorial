@@ -31,23 +31,25 @@
         });
         
 
+               console.log('patient:');
+        console.log(patient)
         $.when(pt, obv).fail(onError);
-
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
+          console.log("byCodes:");
+          console.log(byCodes('26478-8'));
+       
           
-
           var gender = patient.gender;
-
           var fname = '';
           var lname = '';
-
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-        
-          // Resource: Observations
+          
+          
+          // Observations
           lymph = byCodes('26478-8');
           height = byCodes('8302-2');
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -60,7 +62,13 @@
           // var hdl = byCodes('2085-9');
           // var ldl = byCodes('2089-1');
           
-          
+          //FamilyMemberHistory
+        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
+        var familyHistoryFetch = $.Deferred();
+        console.log(familyHistoryFetch);
+        mother = byCodes(fmh, 'MTH');
+        mother = byCodes('MTH');
+        //smart.byCodes(obv, 'code');
 
 
           var p = defaultPatient();
@@ -69,41 +77,33 @@
           p.fname = fname;
           p.lname = lname;
          
-
           // Observations
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           
-          
-          //Family History
- 
+          //FamilyMemberHistory
+           p.familyHistoryFetch = familyHistoryFetch;
+           p.mother = getQuantityValueAndUnit(mother[0]);
           
           
            if (typeof systolicbp != 'undefined')  {
              p.systolicbp = systolicbp;
            }
-
            if (typeof diastolicbp != 'undefined') {
              p.diastolicbp = diastolicbp;
            }
           
          // if (typeof serum_glucose != 'undefined') {
          //   p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-
-
-
           // Cerner SoF Tutorial Observations
           // p.height = getQuantityValueAndUnit(height[0]);
-
           // if (typeof systolicbp != 'undefined')  {
           //   p.systolicbp = systolicbp;
           // }
-
           // if (typeof diastolicbp != 'undefined') {
           //   p.diastolicbp = diastolicbp;
           // }
-
           // p.hdl = getQuantityValueAndUnit(hdl[0]);
           // p.ldl = getQuantityValueAndUnit(ldl[0]);
           console.log('p:');
@@ -114,14 +114,9 @@
         onError();
       }
     }
-    
-
-
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
-
   };
-
   function defaultPatient(){
     return {
       fname: {value: ''},
@@ -133,8 +128,9 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
+      familyHistoryFetch: {value:''},
+      mother: {value:''};
       
-
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
       // systolicbp: {value: ''},
@@ -143,9 +139,7 @@
       // hdl: {value: ''},
     };
   }
-
   // Helper Function
-
   function getBloodPressureValue(BPObservations, typeOfPressure) {
     var formattedBPObservations = [];
     BPObservations.forEach(function(observation){
@@ -159,10 +153,8 @@
         formattedBPObservations.push(observation);
       }
     });
-
     return getQuantityValueAndUnit(formattedBPObservations[0]);
   }
-
   function getQuantityValueAndUnit(ob) {
     if (typeof ob != 'undefined' &&
         typeof ob.valueQuantity != 'undefined' &&
@@ -173,7 +165,6 @@
       return undefined;
     }
   }
-
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -186,13 +177,13 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
+    $('#familyHistoryFetch').html(p.familyHistoryFetch);
+    $('#mother').html(p.mother);
     // Cerner SoF Tutorial Observations
-
     // $('#height').html(p.height);
     // $('#systolicbp').html(p.systolicbp);
     // $('#diastolicbp').html(p.diastolicbp);
     // $('#ldl').html(p.ldl);
     // $('#hdl').html(p.hdl);
   };
-
 })(window);
