@@ -68,13 +68,13 @@
         $.when(pt, fmh).fail(onError);
 
         $.when(pt, fmh).done(function(patient, fmh) {
-          var byCodes = smart.byCodes(fmh, 'code');
+          var byCodes01 = smart.byCodes(fmh, 'code');
           }
           
   
     
               //FamilyMemberHistory
-        mother = byCodes('MTH');
+        mother = byCodes01('MTH');
 
           
           
