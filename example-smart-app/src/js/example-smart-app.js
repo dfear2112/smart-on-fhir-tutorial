@@ -31,7 +31,7 @@
         });
         
         var fmh = smart.patient.api.fetchAll({
-          type: 'FamilyMedicalHistory',
+          type: 'FamilyMemberHistory',
             query: {
               code: {
               $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
