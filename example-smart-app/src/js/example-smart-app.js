@@ -66,12 +66,12 @@
           //FamilyMemberHistory
          //smart.patient.api.search({type: 'FamilyMemberHistory'});
     
-          smart.api.read({type: resourceType, id: resourceId})
-          var family = smart.patient.api.read({type: 'FamilyMemberHistory', id: "resourceId"});
-            $.when(pt, family).fail(onError);
-            $.when(pt, family).done(function(patient, family){
-            console.log(patient);
-              });
+          //smart.api.read({type: resourceType, id: resourceId})
+          //var family = smart.patient.api.read({type: 'FamilyMemberHistory', id: "resourceId"});
+           // $.when(pt, family).fail(onError);
+          //  $.when(pt, family).done(function(patient, family){
+          //  console.log(patient);
+          //    });
             
           
 
