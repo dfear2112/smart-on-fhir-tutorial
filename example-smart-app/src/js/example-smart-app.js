@@ -25,7 +25,13 @@
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7'
                     
-            type: 'Relationship',
+                   ]
+            }
+          }
+        });
+        
+        var fmh = smart.patient.api.fetchAll({
+          type: 'FamilyMedicalHistory',
             query: {
               code: {
               $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
@@ -34,9 +40,6 @@
             }
           }
         });
-        
-
-
         
         console.log('patient:');
         console.log(patient)
@@ -61,6 +64,26 @@
           }
           
           
+   
+        $.when(pt, fmh).fail(onError);
+
+        $.when(pt, fmh).done(function(patient, fmh) {
+          var byCodes = smart.byCodes(fmh, 'code');
+          }
+          
+         mother = byCodes ('MTH')
+    
+  
+    
+              //FamilyMemberHistory
+        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
+        var familyHistoryFetch = $.Deferred();
+        console.log(familyHistoryFetch);
+        mother = byCodes('MTH');
+        //smart.byCodes(obv, 'code');
+          
+          
+          
 
           // Observations
           lymph = byCodes('26478-8');
@@ -74,13 +97,6 @@
           // var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           // var hdl = byCodes('2085-9');
           // var ldl = byCodes('2089-1');
-          
-          //FamilyMemberHistory
-        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
-        var familyHistoryFetch = $.Deferred();
-        console.log(familyHistoryFetch);
-        mother = byCodes('MTH');
-        //smart.byCodes(obv, 'code');
           
           
 
@@ -97,9 +113,9 @@
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           
-          //FamilyMemberHistory
-           p.familyHistoryFetch = familyHistoryFetch;
-           p.mother = getQuantityValueAndUnit(mother[0]);
+          
+          //Family History
+          p.mother = mother;
           
           
            if (typeof systolicbp != 'undefined')  {
@@ -136,6 +152,8 @@
         onError();
       }
     }
+    
+
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
@@ -208,7 +226,6 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#familyHistoryFetch').html(p.familyHistoryFetch);
     $('#mother').html(p.mother);
     // Cerner SoF Tutorial Observations
 
