@@ -1,7 +1,6 @@
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
-
     function onError() {
       console.log('Loading error', arguments);
       ret.reject();
@@ -11,7 +10,6 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-
 // serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
@@ -29,10 +27,22 @@
             }
           }
         });
-        
+
+                var fmh = smart.patient.api.fetchAll({
+          type: 'FamilyMemberHistory',
+          query: {
+            code: {
+              $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
+
+                   ]
+            }
+          }
+        });
+
 
         console.log('patient:');
         console.log(patient)
+
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
@@ -63,6 +73,13 @@
           // var ldl = byCodes('2089-1');
           
           //FamilyMemberHistory
+        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
+        var familyHistoryFetch = $.Deferred();
+        console.log(familyHistoryFetch);
+
+        mother = smart.byCodes(fmh, 'MTH');
+        //smart.byCodes(obv, 'code');
+
 
 
           var p = defaultPatient();
@@ -75,11 +92,12 @@
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-          
-          //FamilyMemberHistory
 
-          
-          
+          //FamilyMemberHistory
+           p.familyHistoryFetch = familyHistoryFetch;
+          p.mother = getQuantityValueAndUnit(mother[0]);
+
+
            if (typeof systolicbp != 'undefined')  {
              p.systolicbp = systolicbp;
            }
@@ -121,7 +139,10 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      
+      familyHistoryFetch: {value:''},
+      mother: {value:''};
+
+
       // Cerner SoF Tutorial Observations
       // height: {value: ''},
       // systolicbp: {value: ''},
@@ -168,8 +189,11 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-
+    $('#familyHistoryFetch').html(p.familyHistoryFetch)
+    $('#familyHistoryFetch').html(p.familyHistoryFetch);
+    $('#mother').html(p.mother);
     // Cerner SoF Tutorial Observations
+
     // $('#height').html(p.height);
     // $('#systolicbp').html(p.systolicbp);
     // $('#diastolicbp').html(p.diastolicbp);
