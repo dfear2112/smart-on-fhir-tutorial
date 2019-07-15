@@ -71,16 +71,11 @@
           var byCodes = smart.byCodes(fmh, 'code');
           }
           
-         mother = byCodes ('MTH')
-    
   
     
               //FamilyMemberHistory
-        var familyHistoryFetch = smart.patient.api.fetchAll({type: "FamilyMemberHistory"});
-        var familyHistoryFetch = $.Deferred();
-        console.log(familyHistoryFetch);
         mother = byCodes('MTH');
-        //smart.byCodes(obv, 'code');
+
           
           
           
