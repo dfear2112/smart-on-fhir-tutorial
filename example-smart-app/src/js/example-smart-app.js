@@ -96,8 +96,8 @@
 
           //FamilyMemberHistory
 
-
-            p.family = family;
+            //
+            // p.family = family;
 
 
 
