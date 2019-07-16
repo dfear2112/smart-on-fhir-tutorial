@@ -46,7 +46,10 @@
             // $.when(pt, family).fail(onError);
             // $.when(pt, family).done(function(patient, family) {
             // var family = smart.patient.FamilyMemberHistory;
-
+            var family = smart.patient.api.search((type: 'FamilyMemberHistory'));
+            family.done(function(patient)()
+            console.log(patient);
+            });
 
 
 
@@ -77,9 +80,8 @@
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
 
-          //FamilyMemberHistory
-          var family = smart.FamilyMemberHistory;
-          
+
+
 
 
           var p = defaultPatient();
