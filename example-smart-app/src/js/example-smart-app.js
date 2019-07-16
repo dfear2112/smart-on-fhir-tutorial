@@ -40,11 +40,15 @@
             }
           });
 
-          $.when(pt, family).fail(onError);
-          $.when(pt, family).done(function(patient, family){
-          console.log('patient:');
-          console.log(patient);
-            });
+
+            //FamilyMemberHistory
+            $.when(pt, family).fail(onError);
+            $.when(pt, family).done(function(patient, family) {
+              var byCodes = smart.byCodes(family, 'code');
+              console.log("byCodes:");
+              console.log(byCodes('26478-8'));
+              family = byCodes('44054006');
+    
 
 
 
@@ -88,12 +92,6 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
 
           //FamilyMemberHistory
-          $.when(pt, obv).fail(onError);
-          $.when(pt, family).done(function(patient, family) {
-            var byCodes = smart.byCodes(family, 'code');
-            console.log("byCodes:");
-            console.log(byCodes('26478-8'));
-            family = byCodes('44054006')
             p.family = family;
 
 
