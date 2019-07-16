@@ -22,7 +22,7 @@
                     'http://loinc.org|8480-6',
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7',
-                    'http://snomed.info/sct|44054006'
+
 
                    ]
             }
@@ -78,7 +78,8 @@
           serum_glucose = byCodes('2345-7');
 
           //FamilyMemberHistory
-          family = byCodes('44054006');
+          var family = smart.FamilyMemberHistory;
+          
 
 
           var p = defaultPatient();
