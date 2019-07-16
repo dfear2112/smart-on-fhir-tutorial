@@ -11,6 +11,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 // serum glucose LOINC was found to be 2345-7
+// bmi LOINC is 39156-5
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
           query: {
@@ -23,7 +24,7 @@
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7',
                     'http://loinc.org|39156-5',
-                    
+
 
 
                    ]
@@ -96,7 +97,7 @@
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-          p.bmi= getQuantityValueAndUnit(bmi[0]);
+          p.bmi = getQuantityValueAndUnit(bmi[0]);
 
           //FamilyMemberHistory
 
