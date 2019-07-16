@@ -46,7 +46,7 @@
             $.when(pt, family).done(function(patient, family) {
               var byCodes_01 = smart.byCodes(family, 'code');
               console.log("byCodes:");
-              console.log(byCodes_01('26478-8'));
+              console.log(byCodes('26478-8'));
               family = byCodes_01('44054006');
 
 
