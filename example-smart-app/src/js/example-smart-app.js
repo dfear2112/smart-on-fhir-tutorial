@@ -33,7 +33,7 @@
             type: 'FamilyMemberHistory'
             query: {
               code: {
-                $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
+                $or: ['http://snomed.info/sct|44054006'
 
                      ]
               }
