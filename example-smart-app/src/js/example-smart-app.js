@@ -47,7 +47,7 @@
               var byCodes_01 = smart.byCodes(family, 'code');
               console.log("byCodes:");
               console.log(byCodes('26478-8'));
-              family = byCodes_01('44054006');
+              family = byCodes('44054006');
 
 
 
