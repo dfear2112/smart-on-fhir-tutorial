@@ -47,9 +47,7 @@
             // $.when(pt, family).done(function(patient, family) {
             // var family = smart.patient.FamilyMemberHistory;
             var family = smart.patient.api.read((type: 'FamilyMemberHistory', id: "SMART-FamilyMemberHistory-14"));
-            family.done(function(patient)()
-            console.log(patient);
-            });
+
 
 
 
