@@ -12,7 +12,7 @@
         var pt = patient.read();
 // serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
-          type: 'Observation',
+          type: 'Observation', 'FamilyMemberHistory',
           query: {
             code: {
               $or: ['http://loinc.org|26478-8',
@@ -21,7 +21,8 @@
                     'http://loinc.org|55284-4',
                     'http://loinc.org|8480-6',
                     'http://loinc.org|8462-4',
-                    'http://loinc.org|2345-7'
+                    'http://loinc.org|2345-7',
+                    'http://snomed.info/sct|44054006'
 
                    ]
             }
@@ -29,22 +30,22 @@
         });
         //FamilyMemberHistory
 
-        var family = smart.patient.api.fetchAll({
-            type: 'FamilyMemberHistory'
-            query: {
-              code: {
-                $or: ['http://snomed.info/sct|44054006'
-
-                     ]
-              }
-            }
-          });
+        // var family = smart.patient.api.fetchAll({
+        //     type: 'FamilyMemberHistory'
+        //     query: {
+        //       code: {
+        //         $or: ['http://snomed.info/sct|44054006'
+        //
+        //              ]
+        //       }
+        //     }
+        //   });
 
 
             //FamilyMemberHistory
-            $.when(pt, family).fail(onError);
-            $.when(pt, family).done(function(patient, family) {
-            var family = smart.patient.FamilyMemberHistory;
+            // $.when(pt, family).fail(onError);
+            // $.when(pt, family).done(function(patient, family) {
+            // var family = smart.patient.FamilyMemberHistory;
 
 
 
@@ -76,6 +77,9 @@
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
 
+          //FamilyMemberHistory
+          family = byCodes('44054006');
+
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -89,6 +93,8 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
 
           //FamilyMemberHistory
+
+
             p.family = family;
 
 
