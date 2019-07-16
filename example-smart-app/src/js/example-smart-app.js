@@ -28,18 +28,19 @@
             }
           }
         });
-        //FamilyMemberHistory
+        FamilyMemberHistory
 
-        // var family = smart.patient.api.fetchAll({
-        //     type: 'FamilyMemberHistory'
-        //     query: {
-        //       code: {
-        //         $or: ['http://snomed.info/sct|44054006'
-        //
-        //              ]
-        //       }
-        //     }
-        //   });
+        var family = smart.patient.api.fetchAll({
+            type: 'FamilyMemberHistory'
+            query: {
+              code: {
+                $or: ['http://snomed.info/sct|44054006',
+                      'http://hl7.org/fhir/v3/RoleCode|MTH',
+                      '44054006|44054006',
+                     ]
+              }
+            }
+          });
 
 
             //FamilyMemberHistory
