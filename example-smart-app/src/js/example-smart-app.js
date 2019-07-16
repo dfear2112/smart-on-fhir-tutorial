@@ -44,7 +44,7 @@
             //FamilyMemberHistory
             $.when(pt, family).fail(onError);
             $.when(pt, family).done(function(patient, family) {
-            family = patient.FamilyMemberHistory;
+            var family = smart.patient.FamilyMemberHistory;
 
 
 
