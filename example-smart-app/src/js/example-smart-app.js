@@ -27,6 +27,16 @@
             }
           }
         });
+        //FamilyMemberHistory
+
+        var family = smart.patient.api.fetchAll({
+            type: 'FamilyMemberHistory'
+      });
+          $.when(pt, family).fail(onError);
+          $.when(pt, family).done(function(patient, family){
+          console.log('patient:');
+          console.log(patient);
+            });
 
 
 
@@ -57,26 +67,6 @@
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
 
-          //FamilyMemberHistory
-
-          var family = smart.patient.api.fetchAll({
-              type: 'FamilyMemberHistory',
-              query: {
-              code: {
-              $or: [
-
-                   ]
-          }
-          }
-        });)
-            $.when(pt, family).fail(onError);
-            $.when(pt, family).done(function(patient, family){
-            console.log('patient:');
-            console.log(patient);
-              });
-
-
-
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -100,7 +90,7 @@
            if (typeof diastolicbp != 'undefined') {
              p.diastolicbp = diastolicbp;
            }
-          
+
           console.log('p:');
           console.log(p);
           ret.resolve(p);
