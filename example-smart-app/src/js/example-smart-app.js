@@ -28,7 +28,7 @@
             }
           }
         });
-        FamilyMemberHistory
+        //FamilyMemberHistory
 
         // var family = smart.patient.api.fetchAll({
         //     type: 'FamilyMemberHistory'
