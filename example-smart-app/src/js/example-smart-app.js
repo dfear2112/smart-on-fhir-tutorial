@@ -130,7 +130,7 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
-      family: {value:''},
+      //family: {value:''},
 
     };
   }
@@ -172,7 +172,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
-    $('#family').html(p.family);
+  //  $('#family').html(p.family);
 
 
   };
