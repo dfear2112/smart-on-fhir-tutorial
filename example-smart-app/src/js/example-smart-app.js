@@ -30,8 +30,16 @@
         //FamilyMemberHistory
 
         var family = smart.patient.api.fetchAll({
-            type: 'FamilyMemberHistory'
-      });
+            type: 'FamilyMemberHistory.gender'
+            query: {
+              code: {
+                $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
+
+                     ]
+              }
+            }
+          });
+
           $.when(pt, family).fail(onError);
           $.when(pt, family).done(function(patient, family){
           console.log('patient:');
