@@ -46,7 +46,7 @@
             // $.when(pt, family).fail(onError);
             // $.when(pt, family).done(function(patient, family) {
             // var family = smart.patient.FamilyMemberHistory;
-            var family = smart.patient.api.read((type: 'FamilyMemberHistory', id: "SMART-FamilyMemberHistory-14"));
+            var family = smart.patient.api.read((type: 'FamilyMemberHistory', id: 'SMART-FamilyMemberHistory-14'));
 
 
 
