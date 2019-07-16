@@ -12,7 +12,7 @@
         var pt = patient.read();
 // serum glucose LOINC was found to be 2345-7
         var obv = smart.patient.api.fetchAll({
-          type: 'Observation', 'FamilyMemberHistory',
+          type: 'Observation',
           query: {
             code: {
               $or: ['http://loinc.org|26478-8',
