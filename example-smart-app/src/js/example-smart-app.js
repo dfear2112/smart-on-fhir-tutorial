@@ -44,11 +44,11 @@
             //FamilyMemberHistory
             $.when(pt, family).fail(onError);
             $.when(pt, family).done(function(patient, family) {
-              var byCodes = smart.byCodes(family, 'code');
+              var byCodes_01 = smart.byCodes(family, 'code');
               console.log("byCodes:");
-              console.log(byCodes('26478-8'));
-              family = byCodes('44054006');
-    
+              console.log(byCodes_01('26478-8'));
+              family = byCodes_01('44054006');
+
 
 
 
