@@ -22,6 +22,8 @@
                     'http://loinc.org|8480-6',
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7',
+                    'http://loinc.org|39156-5',
+                    
 
 
                    ]
@@ -78,6 +80,7 @@
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
+          bmi = byCodes('39156-5');
 
 
 
@@ -93,6 +96,7 @@
           p.lymph = getQuantityValueAndUnit(lymph[0]);
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+          p.bmi= getQuantityValueAndUnit(bmi[0]);
 
           //FamilyMemberHistory
 
@@ -130,6 +134,8 @@
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
+      bmi: {value: ''},
+
       //family: {value:''},
 
     };
@@ -172,6 +178,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
+    $('#bmi').html(p.bmi);
   //  $('#family').html(p.family);
 
 
