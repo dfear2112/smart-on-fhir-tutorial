@@ -30,7 +30,7 @@
         //FamilyMemberHistory
 
         var family = smart.patient.api.fetchAll({
-            type: 'FamilyMemberHistory.gender'
+            type: 'FamilyMemberHistory'
             query: {
               code: {
                 $or: ['http://hl7.org/fhir/v3/RoleCode|MTH'
