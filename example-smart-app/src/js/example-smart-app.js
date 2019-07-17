@@ -23,9 +23,6 @@
                     'http://loinc.org|8462-4',
                     'http://loinc.org|2345-7',
                     'http://loinc.org|39156-5',
-
-
-
                    ]
             }
           }
@@ -59,28 +56,6 @@
           serum_glucose = byCodes('2345-7');
           bmi = byCodes('39156-5');
 
-
-          //Condition: Diabetes
-          var con = smart.patient.api.fetchAll({
-            type: 'Condition',
-            query: {
-              code: {
-                $or: ['http://snomed.info/sct|44054006',
-
-
-
-                     ]
-              }
-            }
-          });
-
-          $.when(pt, con).fail(onError);
-          $.when(pt, con).done(function(patient, con) {
-            var byCodes_01 = smart.byCodes(con, 'code');
-            console.log("byCodes_01:");
-            console.log(byCodes_01('44054006'));
-
-
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -91,8 +66,6 @@
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
-
-
 
 
            if (typeof systolicbp != 'undefined')  {
@@ -124,8 +97,6 @@
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
       bmi: {value: ''},
-
-
     };
   }
   // Helper Function
@@ -166,9 +137,5 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
     $('#bmi').html(p.bmi);
-  //  $('#diabetes_type2').html(p.diabetes_type2);
-  //  $('#family').html(p.family);
-
-
   };
 })(window);
