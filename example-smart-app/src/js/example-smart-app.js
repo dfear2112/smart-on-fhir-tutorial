@@ -31,7 +31,7 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          condition = obv.code.text;
+          condition = obv.code;
           console.log("condition_variable: ");
           console.log(condition)
 
