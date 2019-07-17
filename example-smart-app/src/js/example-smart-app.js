@@ -12,15 +12,7 @@
         var pt = patient.read();
 //SMOMED 44054006 codes for Type 2 Diabetes
         var obv = smart.patient.api.fetchAll({
-          type: 'Condition',
-          query: {
-            code: {
-              $or: ['http://snomed.info/sct|44054006',
-                   ]
-            }
-          }
-        });
-
+          type: 'Condition'});
 
         console.log('patient:');
         console.log(patient)
@@ -28,8 +20,8 @@
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          console.log("byCodes:");
-          console.log(byCodes('44054006'));
+          console.log("Condition:");
+          console.log(obv)
 
 
           var gender = patient.gender;
