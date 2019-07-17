@@ -16,8 +16,7 @@
           type: 'Observation',
           query: {
             code: {
-              $or: ['http://loinc.org|26478-8',
-                    'http://loinc.org|2345-7',
+              $or: ['http://loinc.org|2345-7',
                     'http://loinc.org|8302-2',
                     'http://loinc.org|55284-4',
                     'http://loinc.org|8480-6',
@@ -32,49 +31,6 @@
           }
         });
 
-        //Condition: Diabetes Type 2
-        //var con = smart.patient.api.fetchAll({
-        //  type: 'Condition'})
-        var get_problems = function(){
-  return $.Deferred(function(dfd){
-    smart.patient.api.fetchAll({type: "Condition"}).then(function(problems){
-      problems.forEach(function(p){
-        pt.problems_arr.push([
-          new XDate(p.onsetDateTime),
-          p.code.coding[0].display,
-          p.abatementDateTime ? new XDate(p.abatementDateTime) : null
-        ])
-      })
-      pt.problems_arr = _(pt.problems_arr).sortBy(function(p){ return p[0]; })
-      dfd.resolve();
-    })
-  }).promise();
-};
-
-        //FamilyMemberHistory
-
-        // var family = smart.patient.api.fetchAll({
-        //     type: 'FamilyMemberHistory'
-        //     query: {
-        //       code: {
-        //         $or: ['http://snomed.info/sct|44054006',
-        //               'http://hl7.org/fhir/v3/RoleCode|MTH',
-        //               '44054006|44054006',
-        //              ]
-        //       }
-        //     }
-        //   });
-
-
-            //FamilyMemberHistory
-            // $.when(pt, family).fail(onError);
-            // $.when(pt, family).done(function(patient, family) {
-            // var family = smart.patient.FamilyMemberHistory;
-            // var family = smart.patient.api.read((type: 'FamilyMemberHistory', id: 'SMART-FamilyMemberHistory-14'));
-
-
-
-
 
         console.log('patient:');
         console.log(patient)
@@ -83,7 +39,7 @@
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
-          console.log(byCodes('26478-8'));
+          console.log(byCodes('8302-2'));
 
 
           var gender = patient.gender;
@@ -96,7 +52,6 @@
 
 
           // Observations
-          lymph = byCodes('26478-8');
           height = byCodes('8302-2');
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
@@ -104,11 +59,7 @@
           bmi = byCodes('39156-5');
 
 
-          con.done(function(patient)(
-              console.log(patient);
-          ))
-          //Conditions: Type 2 Diabetes
-
+          //Condition: Diabetes
 
 
           var p = defaultPatient();
@@ -123,13 +74,6 @@
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
 
-          //Condition: Diabetes
-          //p.diabetes_type2 = con;
-
-          //FamilyMemberHistory
-
-            //
-            // p.family = family;
 
 
 
@@ -163,9 +107,7 @@
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
       bmi: {value: ''},
-      diabetes_type2: {value: ''},
-      //con: {value:''},
-      //family: {value:''},
+
 
     };
   }
@@ -208,7 +150,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
     $('#bmi').html(p.bmi);
-    $('#diabetes_type2').html(p.diabetes_type2);
+  //  $('#diabetes_type2').html(p.diabetes_type2);
   //  $('#family').html(p.family);
 
 
