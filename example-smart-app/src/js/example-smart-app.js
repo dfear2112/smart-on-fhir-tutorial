@@ -37,7 +37,7 @@
 
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
-          //var byCodes = smart.byCodes(obv, 'code');
+          var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
           console.log(byCodes('2345-7'));
 
@@ -61,6 +61,24 @@
 
 
           //Condition: Diabetes
+          var con = smart.patient.api.fetchAll({
+            type: 'Condition',
+            query: {
+              code: {
+                $or: ['http://snomed.info/sct|44054006',
+
+
+
+                     ]
+              }
+            }
+          });
+
+          $.when(pt, con).fail(onError);
+          $.when(pt, con).done(function(patient, con) {
+            var byCodes_01 = smart.byCodes(con, 'code');
+            console.log("byCodes_01:");
+            console.log(byCodes_01('44054006'));
 
 
           var p = defaultPatient();
