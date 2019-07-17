@@ -43,7 +43,7 @@
           p.lname = lname;
 
           //Conditions
-          p.condition = getCondition(condition[""0""]);
+          p.condition = getCondition(condition[0]);
 
           console.log('p:');
           console.log(p);
@@ -70,7 +70,7 @@
   function getCondition(ob) {
     if (typeof ob != 'undefined' &&
         typeof ob.code.text != 'undefined') {
-          return ob.code.text;
+          return ob.""0"".code.text;
     } else {
       return undefined;
     }
