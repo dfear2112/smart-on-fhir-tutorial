@@ -31,6 +31,22 @@
             }
           }
         });
+
+        //Condition: Diabetes Type 2
+        var obv = smart.patient.api.fetchAll({
+          type: 'Condition',
+          query: {
+            code: {
+              $or: ['http://snomed.info/sct|44054006',
+
+
+
+
+                   ]
+            }
+          }
+        });
+
         //FamilyMemberHistory
 
         // var family = smart.patient.api.fetchAll({
@@ -84,7 +100,8 @@
           bmi = byCodes('39156-5');
 
 
-
+          //Conditions: Type 2 Diabetes
+          diabetes_type2 = byCodes('44054006');
 
 
           var p = defaultPatient();
@@ -98,6 +115,9 @@
           p.height = getQuantityValueAndUnit(height[0]);
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
+
+          //Condition: Diabetes
+          p.diabetes_type2 = getQuantityString(diabetes_type2[0]);
 
           //FamilyMemberHistory
 
@@ -136,6 +156,7 @@
       diastolicbp: {value: ''},
       serum_glucose: {value: ''},
       bmi: {value: ''},
+      diabetes_type2: {value: ''},
 
       //family: {value:''},
 
@@ -180,6 +201,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
     $('#bmi').html(p.bmi);
+    $('#diabetes_type2').html(p.diabetes_type2);
   //  $('#family').html(p.family);
 
 
