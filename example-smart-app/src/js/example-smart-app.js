@@ -37,7 +37,7 @@
 
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
-          var byCodes = smart.byCodes(obv, 'code');
+          //var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
           console.log(byCodes('2345-7'));
 
@@ -53,6 +53,7 @@
 
           // Observations
           height = byCodes('8302-2');
+          console.log(height);
           systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
