@@ -33,7 +33,7 @@
         });
 
         //Condition: Diabetes Type 2
-        var obv = smart.patient.api.fetchAll({
+        var con = smart.patient.api.fetchAll({
           type: 'Condition',
           query: {
             code: {
@@ -99,6 +99,12 @@
           serum_glucose = byCodes('2345-7');
           bmi = byCodes('39156-5');
 
+
+          $.when(pt, con).fail(onError);
+          $.when(pt, con).done(function(patient, con) {
+            var byCodes = smart.byCodes(con, 'code');
+            console.log("byCodes:");
+            console.log(byCodes('26478-8'));
 
           //Conditions: Type 2 Diabetes
           diabetes_type2 = byCodes('44054006');
