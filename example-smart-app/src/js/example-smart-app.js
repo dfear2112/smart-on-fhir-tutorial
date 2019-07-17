@@ -67,8 +67,8 @@
 
   function getCondition(ob) {
     if (typeof ob != 'undefined' &&
-        typeof ob.text != 'undefined') {
-          return ob.text;
+        typeof ob.code.text != 'undefined') {
+          return ob.code.text;
     } else {
       return undefined;
     }
