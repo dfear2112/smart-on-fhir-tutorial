@@ -41,7 +41,7 @@
           p.lname = lname;
 
           //Conditions
-          p.condition = getQuantityValueAndUnit(condition[0]);
+          p.condition = getCondition(condition[0]);
 
           console.log('p:');
           console.log(p);
@@ -65,12 +65,10 @@
   }
   // Helper Function
 
-  function getQuantityValueAndUnit(ob) {
+  function getCondition(ob) {
     if (typeof ob != 'undefined' &&
-        typeof ob.valueQuantity != 'undefined' &&
-        typeof ob.valueQuantity.value != 'undefined' &&
-        typeof ob.valueQuantity.unit != 'undefined') {
-          return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+        typeof ob.text != 'undefined') {
+          return ob.text;
     } else {
       return undefined;
     }
