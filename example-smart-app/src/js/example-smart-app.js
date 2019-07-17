@@ -100,14 +100,11 @@
           bmi = byCodes('39156-5');
 
 
-          $.when(pt, con).fail(onError);
-          $.when(pt, con).done(function(patient, con) {
-            var byCodes = smart.byCodes(con, 'code');
-            console.log("byCodes:");
-            console.log(byCodes('26478-8'));
-
+          con.done(function(patient)(
+              console.log(patient);
+          ))
           //Conditions: Type 2 Diabetes
-          diabetes_type2 = byCodes('44054006');
+
 
 
           var p = defaultPatient();
@@ -123,7 +120,7 @@
           p.bmi = getQuantityValueAndUnit(bmi[0]);
 
           //Condition: Diabetes
-          p.diabetes_type2 = getQuantityString(diabetes_type2[0]);
+          p.diabetes_type2 = con;
 
           //FamilyMemberHistory
 
@@ -163,7 +160,7 @@
       serum_glucose: {value: ''},
       bmi: {value: ''},
       diabetes_type2: {value: ''},
-
+      con: {value:''},
       //family: {value:''},
 
     };
