@@ -32,6 +32,8 @@
             lname = patient.name[0].family;
           }
           condition = byCodes('44054006');
+          console.log("condition_variable: ");
+          console.log(condition)
 
 
           var p = defaultPatient();
@@ -41,7 +43,7 @@
           p.lname = lname;
 
           //Conditions
-          p.condition = getCondition(condition[0]);
+          p.condition = getCondition(condition[""0""]);
 
           console.log('p:');
           console.log(p);
