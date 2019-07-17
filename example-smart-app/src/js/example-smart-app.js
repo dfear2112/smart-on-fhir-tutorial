@@ -33,19 +33,23 @@
         });
 
         //Condition: Diabetes Type 2
-        var con = smart.patient.api.fetchAll({
-          type: 'Condition',
-          query: {
-            code: {
-              $or: ['http://snomed.info/sct|44054006',
-
-
-
-
-                   ]
-            }
-          }
-        });
+        //var con = smart.patient.api.fetchAll({
+        //  type: 'Condition'})
+        var get_problems = function(){
+  return $.Deferred(function(dfd){
+    smart.patient.api.fetchAll({type: "Condition"}).then(function(problems){
+      problems.forEach(function(p){
+        pt.problems_arr.push([
+          new XDate(p.onsetDateTime),
+          p.code.coding[0].display,
+          p.abatementDateTime ? new XDate(p.abatementDateTime) : null
+        ])
+      })
+      pt.problems_arr = _(pt.problems_arr).sortBy(function(p){ return p[0]; })
+      dfd.resolve();
+    })
+  }).promise();
+};
 
         //FamilyMemberHistory
 
@@ -120,7 +124,7 @@
           p.bmi = getQuantityValueAndUnit(bmi[0]);
 
           //Condition: Diabetes
-          p.diabetes_type2 = con;
+          //p.diabetes_type2 = con;
 
           //FamilyMemberHistory
 
@@ -160,7 +164,7 @@
       serum_glucose: {value: ''},
       bmi: {value: ''},
       diabetes_type2: {value: ''},
-      con: {value:''},
+      //con: {value:''},
       //family: {value:''},
 
     };
