@@ -12,7 +12,14 @@
         var pt = patient.read();
 //SMOMED 44054006 codes for Type 2 Diabetes
         var con = smart.patient.api.fetchAll({
-          type: 'Condition'});
+          type: 'Condition'
+          query: {
+            code: {
+              $or: ['http://snomed.info/sct|35678005'
+                   ]
+            }
+          }
+        });
 
         console.log('patient:');
         console.log(patient)
@@ -31,7 +38,7 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          condition = patient.Condition.code
+          condition = byCodes('35678005');
           console.log("condition_variable: ");
           console.log(condition)
 
