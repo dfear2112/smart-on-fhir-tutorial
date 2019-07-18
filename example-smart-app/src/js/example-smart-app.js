@@ -40,6 +40,7 @@
 
           //Conditions
           p.motherfamilymemberhistory = getMotherandCondition(his[0]);
+          p.mothercondition = getMotherCondition(his[0]);
 
           console.log('p:');
           console.log(p);
@@ -59,6 +60,7 @@
       gender: {value: ''},
       birthdate: {value: ''},
       motherfamilymemberhistory: {value: ''},
+      mothercondition: {value: ''},
 
     };
   }
@@ -73,6 +75,15 @@
     }
   }
 
+  function getMotherCondition (mo) {
+    if (typeof mo != 'undefined' &&
+        typeof mo.condition[0].code.text != 'undefined'){
+          return mo.condition[0].code.text;
+        } else {
+          return undefined;
+        }
+  }
+
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -81,5 +92,6 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#motherfamilymemberhistory').html(p.motherfamilymemberhistory);
+    $('#mothercondition').html(p.mothercondition);
   };
 })(window);
