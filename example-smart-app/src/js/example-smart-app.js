@@ -15,7 +15,7 @@
           type: 'Condition',
           query: {
             code: {
-              $or: ['http://snomed.info/sct|35678005'
+              $or: ['http://snomed.info/sct|44054006'
                    ]
             }
           }
@@ -38,7 +38,7 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          condition = byCodes('35678005');
+          condition = byCodes('44054006');
           console.log("condition_variable: ");
           console.log(condition)
 
