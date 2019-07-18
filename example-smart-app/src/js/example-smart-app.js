@@ -50,7 +50,7 @@
           p.lname = lname;
 
           //Conditions
-          p.condition = getCondition(condition[0]);
+          p.condition = getCondition(con[0]);
 
           console.log('p:');
           console.log(p);
