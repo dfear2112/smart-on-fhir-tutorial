@@ -52,6 +52,9 @@
           //Conditions
           p.condition = getCondition(con[0]);
 
+          //I need to confirm that this means
+          p.onset = getOnset(con[0];
+
           console.log('p:');
           console.log(p);
           ret.resolve(p);
@@ -70,6 +73,7 @@
       gender: {value: ''},
       birthdate: {value: ''},
       condition: {value: ''},
+      onset: {value: ''},
     };
   }
   // Helper Function
@@ -82,6 +86,16 @@
       return undefined;
     }
   }
+
+  function getOnset(co) {
+    if (typeof co != 'undefined' &&
+        typeof co.meta.onsetDateTime != 'undefined') {
+            return co.meta.onsetDateTime;
+        } else {
+          return undefined;
+        }
+      }
+
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -90,5 +104,6 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#condition').html(p.condition);
+    $('#onset').html(p.onset);
   };
 })(window);
