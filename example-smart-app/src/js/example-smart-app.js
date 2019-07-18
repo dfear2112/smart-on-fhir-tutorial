@@ -89,8 +89,8 @@
 
   function getOnset(co) {
     if (typeof co != 'undefined' &&
-        typeof co.meta.onsetDateTime != 'undefined') {
-            return co.meta.onsetDateTime;
+        typeof co.onsetDateTime != 'undefined') {
+            return co.onsetDateTime;
         } else {
           return undefined;
         }
