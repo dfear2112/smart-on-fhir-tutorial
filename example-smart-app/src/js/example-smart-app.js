@@ -43,7 +43,7 @@
           p.mothercondition = getMotherCondition(his[0]);
 
           p.father= getFather(his[1]);
-          p.fathercondition = getFatherCondition(his[0]);
+          p.fathercondition = getFatherCondition(his[1]);
 
           console.log('p:');
           console.log(p);
