@@ -66,8 +66,8 @@
 
   function getMotherandCondition(fa) {
     if (typeof fa != 'undefined' &&
-        typeof fa.relationship.coding.display != 'undefined') {
-          return fa.relationship.coding.display;
+        typeof fa.relationship.coding[0].display != 'undefined') {
+          return fa.relationship.coding[0].display;
     } else {
       return undefined;
     }
