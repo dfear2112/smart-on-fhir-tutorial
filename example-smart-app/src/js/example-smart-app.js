@@ -28,7 +28,7 @@
         $.when(pt, con).done(function(patient, con) {
           var byCodes = smart.byCodes(con, 'code');
           console.log("byCodes:");
-          console.log(byCodes('44054006'));
+          console.log(con);
 
 
           var gender = patient.gender;
