@@ -98,7 +98,7 @@
         }
   }
 
- function get FatherCondition (dc){
+ function getFatherCondition (dc){
   if (typeof dc != 'undefined' &&
       typeof dc.condition[0].code.text != 'undefined'){
         return dc.condition[0].code.text;
