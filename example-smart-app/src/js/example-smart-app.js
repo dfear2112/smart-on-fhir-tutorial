@@ -31,7 +31,7 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          condition = byCodes('35678005')
+          condition = patient.Condition.text
           console.log("condition_variable: ");
           console.log(condition)
 
