@@ -11,12 +11,8 @@
         var patient = smart.patient;
         var pt = patient.read();
 //SMOMED 44054006 codes for Type 2 Diabetes
-        var con = smart.patient.api.fetchAll({
-          type: 'Condition',
-          query: {
-            code: {
-              $or: ['http://snomed.info/sct|44054006'
-                   ]
+        var his = smart.patient.api.fetchAll({
+          type: 'FamilyMemberHistory'
             }
           }
         });
@@ -24,11 +20,11 @@
         console.log('patient:');
         console.log(patient)
 
-        $.when(pt, con).fail(onError);
-        $.when(pt, con).done(function(patient, con) {
-          var byCodes = smart.byCodes(con, 'code');
-          console.log("byCodes:");
-          console.log(con);
+        $.when(pt, his).fail(onError);
+        $.when(pt, his).done(function(patient, his) {
+          var byCodes = smart.byCodes(his, 'code');
+          console.log("Family Member History:");
+          console.log(his);
 
 
           var gender = patient.gender;
@@ -38,10 +34,6 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          condition = byCodes('44054006');
-          console.log("condition_variable: ");
-          console.log(condition)
-
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -50,10 +42,7 @@
           p.lname = lname;
 
           //Conditions
-          p.condition = getCondition(con[0]);
-
-          //I need to confirm that this means
-          p.onset = getOnset(con[0]);
+          p.familymemberhistory = getHistory(his[0]);
 
           console.log('p:');
           console.log(p);
@@ -72,13 +61,13 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
-      condition: {value: ''},
-      onset: {value: ''},
+      familymemberhistory: {value: ''},
+
     };
   }
   // Helper Function
 
-  function getCondition(co) {
+  function getHistory(co) {
     if (typeof co != 'undefined' &&
         typeof co.code.text != 'undefined') {
           return co.code.text;
@@ -87,15 +76,6 @@
     }
   }
 
-  function getOnset(co) {
-    if (typeof co != 'undefined' &&
-        typeof co.onsetDateTime != 'undefined') {
-            return co.onsetDateTime;
-        } else {
-          return undefined;
-        }
-      }
-
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -103,7 +83,6 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#condition').html(p.condition);
-    $('#onset').html(p.onset);
+    $('#familymemberhistory').html(p.familymemberhistory);
   };
 })(window);
