@@ -12,7 +12,7 @@
         var pt = patient.read();
 //SMOMED 44054006 codes for Type 2 Diabetes
         var con = smart.patient.api.fetchAll({
-          type: 'Condition'
+          type: 'Condition',
           query: {
             code: {
               $or: ['http://snomed.info/sct|35678005'
