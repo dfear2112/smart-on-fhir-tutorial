@@ -39,7 +39,7 @@
           p.lname = lname;
 
           //Conditions
-          p.motherfamilymemberhistory = getHistory(fa[0]);
+          p.motherfamilymemberhistory = getMotherandCondition(fa[0]);
 
           console.log('p:');
           console.log(p);
