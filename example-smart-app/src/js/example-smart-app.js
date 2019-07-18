@@ -42,6 +42,9 @@
           p.motherfamilymemberhistory = getMotherandCondition(his[0]);
           p.mothercondition = getMotherCondition(his[0]);
 
+          p.father= getFather(his[1]);
+          p.fathercondition = getFatherCondition(his[0]);
+
           console.log('p:');
           console.log(p);
           ret.resolve(p);
@@ -61,6 +64,8 @@
       birthdate: {value: ''},
       motherfamilymemberhistory: {value: ''},
       mothercondition: {value: ''},
+      father: {value: ''},
+      fathercondition: {value: ''},
 
     };
   }
@@ -84,6 +89,23 @@
         }
   }
 
+  function get Father (dad) {
+    if (typeof dad != 'undefined' &&
+        typeof dad.relationship.coding[0].display != 'undefined'){
+          return dad.relationship.coding[0].display ;
+        } else {
+          return undefined;
+        }
+  }
+
+ function get FatherCondition (dc){
+  if (typeof dc != 'undefined' &&
+      typeof dc.condition[0].code.text != 'undefined'){
+        return dc.condition[0].code.text;
+      } else {
+        return undefined;
+      }
+  }
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -93,5 +115,7 @@
     $('#birthdate').html(p.birthdate);
     $('#motherfamilymemberhistory').html(p.motherfamilymemberhistory);
     $('#mothercondition').html(p.mothercondition);
+    $('#father').html(p.father);
+    $('#fathercondition').html(p.fathercondition);
   };
 })(window);
