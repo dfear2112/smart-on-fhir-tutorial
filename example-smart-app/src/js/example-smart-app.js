@@ -39,7 +39,7 @@
           p.lname = lname;
 
           //Conditions
-          p.familymemberhistory = getHistory(his[0]);
+          p.motherfamilymemberhistory = getHistory(fa[0]);
 
           console.log('p:');
           console.log(p);
@@ -58,16 +58,16 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
-      familymemberhistory: {value: ''},
+      motherfamilymemberhistory: {value: ''},
 
     };
   }
   // Helper Function
 
-  function getHistory(co) {
-    if (typeof co != 'undefined' &&
-        typeof co.code.text != 'undefined') {
-          return co.code.text;
+  function getMotherandCondition(fa) {
+    if (typeof fa != 'undefined' &&
+        typeof fa.condition.code.text != 'undefined') {
+          return fa.condition.code.text;
     } else {
       return undefined;
     }
@@ -80,6 +80,6 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#familymemberhistory').html(p.familymemberhistory);
+    $('#motherfamilymemberhistory').html(p.motherfamilymemberhistory);
   };
 })(window);
