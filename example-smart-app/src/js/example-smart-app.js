@@ -76,8 +76,8 @@
 
   function getCondition(co) {
     if (typeof co != 'undefined' &&
-        typeof co.text != 'undefined') {
-          return co.text;
+        typeof co.code != 'undefined') {
+          return co.code;
     } else {
       return undefined;
     }
