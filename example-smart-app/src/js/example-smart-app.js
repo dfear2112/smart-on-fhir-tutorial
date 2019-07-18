@@ -89,7 +89,7 @@
         }
   }
 
-  function get Father (dad) {
+  function getFather (dad) {
     if (typeof dad != 'undefined' &&
         typeof dad.relationship.coding[0].display != 'undefined'){
           return dad.relationship.coding[0].display ;
