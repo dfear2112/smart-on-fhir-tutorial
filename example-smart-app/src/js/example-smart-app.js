@@ -100,6 +100,8 @@
 
  function getFatherCondition (dc){
   if (typeof dc != 'undefined' &&
+      typeof dc.condition != 'undefined' &&
+      typeof dc.condition[0].code != 'undefined' &&
       typeof dc.condition[0].code.text != 'undefined'){
         return dc.condition[0].code.text;
       } else {
