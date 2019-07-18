@@ -53,7 +53,7 @@
           p.condition = getCondition(con[0]);
 
           //I need to confirm that this means
-          p.onset = getOnset(con[0];
+          p.onset = getOnset(con[0]);
 
           console.log('p:');
           console.log(p);
