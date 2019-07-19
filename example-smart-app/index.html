@@ -84,7 +84,7 @@
     </tr>
 </table>
     <!-- Application-level javascript-->
-    <script src='./src/js/example-smart-app_Observations.js'></script>
+    <!--<script src='./src/js/example-smart-app_Observations.js'></script> -->
     <script src='./src/js/example-smart-app_Conditions.js'></script>
     <!--<script src='./src/js/example-smart-app_FamilyMemberHistory.js'></script> -->
     <!-- FHIR Client JS Library -->
@@ -96,9 +96,9 @@
         function(p) {
           drawVisualization(p);
         },
-        function(c) {
-          drawVisualization(c);
-        },
+        //function(c) {
+        //  drawVisualization(c);
+        //},
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
