@@ -92,8 +92,7 @@
       } else {
         return undefined;
       }
-  }var his = smart.patient.api.fetchAll({
-          type: 'FamilyMemberHistory'});
+  }
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
