@@ -100,10 +100,8 @@
         extractData().then(
           function(c) {
             drawVisualization(c);
-          }
-        )
+          )},
 
-      ),
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
