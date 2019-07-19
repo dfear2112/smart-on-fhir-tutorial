@@ -96,9 +96,14 @@
         function(p) {
           drawVisualization(p);
         },
-        //function(c) {
-        //  drawVisualization(c);
-        //},
+      <script src='./src/js/example-smart-app_Conditions.js'></script>
+        extractData().then(
+          function(c) {
+            drawVisualization(c);
+          }
+        )
+
+        },
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
