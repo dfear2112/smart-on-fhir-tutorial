@@ -36,17 +36,17 @@
           console.log(condition)
 
 
-          var p = defaultPatient();
+          var c = defaultConditions();
 
           //Conditions
-          p.condition = getCondition(con[0]);
+          c.condition = getCondition(con[0]);
 
           //I need to confirm that this means
-          p.onset = getOnset(con[0]);
+          c.onset = getOnset(con[0]);
 
-          console.log('p:');
-          console.log(p);
-          ret.resolve(p);
+          console.log('c:');
+          console.log(c);
+          ret.resolve(c);
         });
       } else {
         onError();
@@ -55,7 +55,7 @@
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
   };
-  function defaultPatient(){
+  function defaultConditions(){
     return {
       condition: {value: ''},
       onset: {value: ''},
@@ -81,10 +81,10 @@
         }
       }
 
-  window.drawVisualization = function(p) {
+  window.drawVisualization = function(c) {
     $('#holder').show();
     $('#loading').hide();
-    $('#condition').html(p.condition);
-    $('#onset').html(p.onset);
+    $('#condition').html(c.condition);
+    $('#onset').html(c.onset);
   };
 })(window);

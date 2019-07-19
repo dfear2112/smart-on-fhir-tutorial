@@ -102,6 +102,18 @@
           $('#errors').html('<p> Failed to call FHIR Service </p>');
         }
       );
+      //This is to try to read in Condition data too
+      extractData().then(
+        //Display Patient Conditions if extractData was success
+        function(c) {
+          drawVisualization(c);
+        },
+        //Display 'Failed to call FHIR Service' if extractData failed
+        function() {
+          $('#loading').hide();
+          $('#errors').html('<c> Failed to call FHIR Service </c>');
+        }
+      );
     </script>
   </body>
 </html>
