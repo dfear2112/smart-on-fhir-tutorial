@@ -84,8 +84,8 @@
     </tr>
 </table>
     <!-- Application-level javascript-->
-    <!--<script src='./src/js/example-smart-app_Observations.js'></script> -->
-    <script src='./src/js/example-smart-app_Conditions.js'></script>
+    <script src='./src/js/example-smart-app_Observations.js'></script>
+    <!--<script src='./src/js/example-smart-app_Conditions.js'></script> -->
     <!--<script src='./src/js/example-smart-app_FamilyMemberHistory.js'></script> -->
     <!-- FHIR Client JS Library -->
     <script src='./lib/js/fhir-client-v0.1.12.js'></script>
@@ -93,8 +93,8 @@
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success
-        function(c) {
-          drawVisualization(c);
+        function(p) {
+          drawVisualization(p);
         },
         //function(c) {
         //  drawVisualization(c);
@@ -108,15 +108,15 @@
 
     </script>
       <!-- Application-level javascript-->
-    <script src='./src/js/example-smart-app_Observations.js'></script>
+    <script src='./src/js/example-smart-app_Conditions.js'></script>
     <!-- FHIR Client JS Library -->
     <script src='./lib/js/fhir-client-v0.1.12.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success
-        function(p) {
-          drawVisualization(p);
+        function(c) {
+          drawVisualization(c);
         },
         //function(c) {
         //  drawVisualization(c);
