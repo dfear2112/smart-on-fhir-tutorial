@@ -31,23 +31,12 @@
           console.log(con);
 
 
-          var gender = patient.gender;
-          var fname = '';
-          var lname = '';
-          if (typeof patient.name[0] !== 'undefined') {
-            fname = patient.name[0].given.join(' ');
-            lname = patient.name[0].family;
-          }
           condition = byCodes('44054006');
           console.log("condition_variable: ");
           console.log(condition)
 
 
           var p = defaultPatient();
-          //p.birthdate = patient.birthDate;
-          //p.gender = gender;
-          //p.fname = fname;
-          //p.lname = lname;
 
           //Conditions
           p.condition = getCondition(con[0]);
@@ -68,10 +57,6 @@
   };
   function defaultPatient(){
     return {
-      //fname: {value: ''},
-      //lname: {value: ''},
-      //gender: {value: ''},
-      //birthdate: {value: ''},
       condition: {value: ''},
       onset: {value: ''},
     };
@@ -99,10 +84,6 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    //$('#fname').html(p.fname);
-    //$('#lname').html(p.lname);
-    //$('#gender').html(p.gender);
-    //$('#birthdate').html(p.birthdate);
     $('#condition').html(p.condition);
     $('#onset').html(p.onset);
   };
