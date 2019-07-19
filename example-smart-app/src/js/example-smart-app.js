@@ -62,7 +62,7 @@
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
             bmi = byCodes('39156-5');
-
+</script>
 
             //Conditions
         $.when(pt, con).fail(onError);
