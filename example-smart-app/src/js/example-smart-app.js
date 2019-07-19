@@ -45,7 +45,7 @@
         $.when(pt, his).done(function(patient, his) {
           var byCodes = smart.byCodes(his, 'code');
           console.log("Family Member History:");
-          console.log(his);
+          console.log(his)};
 
           //Observations
         $.when(pt, obv).fail(onError);
@@ -61,7 +61,7 @@
             systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5');
+            bmi = byCodes('39156-5')};
 
             //Conditions
         $.when(pt, con).fail(onError);
@@ -81,7 +81,6 @@
       } else {
         onError();
       }
-    }
     //creating default patient
     var p = defaultPatient();
     p.birthdate = patient.birthDate;
