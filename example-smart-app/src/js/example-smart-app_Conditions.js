@@ -44,10 +44,10 @@
 
 
           var p = defaultPatient();
-          p.birthdate = patient.birthDate;
-          p.gender = gender;
-          p.fname = fname;
-          p.lname = lname;
+          //p.birthdate = patient.birthDate;
+          //p.gender = gender;
+          //p.fname = fname;
+          //p.lname = lname;
 
           //Conditions
           p.condition = getCondition(con[0]);
@@ -68,10 +68,10 @@
   };
   function defaultPatient(){
     return {
-      fname: {value: ''},
-      lname: {value: ''},
-      gender: {value: ''},
-      birthdate: {value: ''},
+      //fname: {value: ''},
+      //lname: {value: ''},
+      //gender: {value: ''},
+      //birthdate: {value: ''},
       condition: {value: ''},
       onset: {value: ''},
     };

@@ -24,19 +24,19 @@
           console.log(his);
 
 
-          var gender = patient.gender;
-          var fname = '';
-          var lname = '';
-          if (typeof patient.name[0] !== 'undefined') {
-            fname = patient.name[0].given.join(' ');
-            lname = patient.name[0].family;
-          }
+          //var gender = patient.gender;
+          //var fname = '';
+          //var lname = '';
+          //if (typeof patient.name[0] !== 'undefined') {
+          //  fname = patient.name[0].given.join(' ');
+          //  lname = patient.name[0].family;
+        //  }
 
           var p = defaultPatient();
-          p.birthdate = patient.birthDate;
-          p.gender = gender;
-          p.fname = fname;
-          p.lname = lname;
+          //p.birthdate = patient.birthDate;
+          //p.gender = gender;
+          //p.fname = fname;
+          //p.lname = lname;
 
           //Conditions
           p.motherfamilymemberhistory = getMotherandCondition(his[0]);
@@ -58,10 +58,10 @@
   };
   function defaultPatient(){
     return {
-      fname: {value: ''},
-      lname: {value: ''},
-      gender: {value: ''},
-      birthdate: {value: ''},
+      //fname: {value: ''},
+      //lname: {value: ''},
+      //gender: {value: ''},
+      //birthdate: {value: ''},
       motherfamilymemberhistory: {value: ''},
       mothercondition: {value: ''},
       father: {value: ''},
