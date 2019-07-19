@@ -85,7 +85,7 @@
 </table>
     <!-- Application-level javascript-->
     <script src='./src/js/example-smart-app_Observations.js'></script>
-    <!--<script src='./src/js/example-smart-app_Conditions.js'></script> -->
+    <script src='./src/js/example-smart-app_Conditions.js'></script>
     <!--<script src='./src/js/example-smart-app_FamilyMemberHistory.js'></script> -->
     <!-- FHIR Client JS Library -->
     <script src='./lib/js/fhir-client-v0.1.12.js'></script>
@@ -96,24 +96,16 @@
         function(p) {
           drawVisualization(p);
         },
-        //Display 'Failed to call FHIR Service' if extractData failed
-        function() {
-          $('#loading').hide();
-          $('#errors').html('<p> Failed to call FHIR Service for Observations</p>');
-        }
-      );
-      //This is to try to read in Condition data too
-      extractData().then(
-        //Display Patient Conditions if extractData was success
         function(c) {
           drawVisualization(c);
         },
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
-          $('#errors').html('<c> Failed to call FHIR Service for Conditions</c>');
+          $('#errors').html('<p> Failed to call FHIR Service for Observations</p>');
         }
       );
+
     </script>
   </body>
 </html>
