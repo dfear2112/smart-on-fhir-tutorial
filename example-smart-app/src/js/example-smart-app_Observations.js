@@ -1,5 +1,5 @@
-(function(window){
-  window.extractData = function() {
+(function(window1){
+  window1.extractData = function() {
     var ret = $.Deferred();
     function onError() {
       console.log('Loading error', arguments);
@@ -125,7 +125,7 @@
       return undefined;
     }
   }
-  window.drawVisualization = function(p) {
+  window1.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
@@ -138,4 +138,4 @@
     $('#serum_glucose').html(p.serum_glucose);
     $('#bmi').html(p.bmi);
   };
-})(window);
+})(window1);
