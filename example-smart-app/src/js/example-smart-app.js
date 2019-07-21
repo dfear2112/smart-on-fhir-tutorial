@@ -44,15 +44,14 @@
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
-          var byCodes = smart.byCodes(his, 'code')});
-
+          var byCodes = smart.byCodes(his, 'code')
           //Family Member History
-          
+
           p.motherfamilymemberhistory = getMotherandCondition(his[0]);
           p.mothercondition = getMotherCondition(his[0]);
 
           p.father= getFather(his[1]);
-          p.fathercondition = getFatherCondition(his[1]);
+          p.fathercondition = getFatherCondition(his[1]);});
 
 
           //Observations
@@ -69,7 +68,7 @@
             systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5')});
+            bmi = byCodes('39156-5')
 
             p.birthdate = patient.birthDate;
             p.gender = gender;
@@ -87,6 +86,8 @@
              if (typeof diastolicbp != 'undefined') {
                p.diastolicbp = diastolicbp;
              }
+            });
+
 
             //Conditions
         $.when(pt, con).fail(onError);
