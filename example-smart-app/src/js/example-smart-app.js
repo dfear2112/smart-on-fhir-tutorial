@@ -223,8 +223,8 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#condition').html(c.condition);
-    $('#onset').html(c.onset);
+    $('#condition').html(p.condition);
+    $('#onset').html(p.onset);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
