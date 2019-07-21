@@ -104,9 +104,9 @@
               p.onset = getOnset(con[0]);
 
 
-              ret.resolve(p);
+              //ret.resolve(p);
             });
-
+              ret.resolve(p);
         };
        //else {
         //onError();
