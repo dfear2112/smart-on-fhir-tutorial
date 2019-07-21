@@ -41,6 +41,41 @@
           });
 
         var p = defaultPatient();
+
+        //Observations
+      $.when(pt, obv).fail(onError);
+      $.when(pt, obv).done(function(patient, obv) {
+          var byCodes = smart.byCodes(obv, 'code');
+          var gender = patient.gender;
+          var fname = '';
+          var lname = '';
+          if (typeof patient.name[0] !== 'undefined') {
+            fname = patient.name[0].given.join(' ');
+            lname = patient.name[0].family;
+          }
+          systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
+          diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+          serum_glucose = byCodes('2345-7');
+          bmi = byCodes('39156-5');
+
+          p.birthdate = patient.birthDate;
+          p.gender = gender;
+          p.fname = fname;
+          p.lname = lname;
+
+          // Observations
+          p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+          p.bmi = getQuantityValueAndUnit(bmi[0]);
+
+
+           if (typeof systolicbp != 'undefined')  {
+             p.systolicbp = systolicbp;
+           }
+           if (typeof diastolicbp != 'undefined') {
+             p.diastolicbp = diastolicbp;
+           }
+          });
+
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
@@ -52,41 +87,6 @@
 
           p.father= getFather(his[1]);
           p.fathercondition = getFatherCondition(his[1]);});
-
-
-          //Observations
-        $.when(pt, obv).fail(onError);
-        $.when(pt, obv).done(function(patient, obv) {
-            var byCodes = smart.byCodes(obv, 'code');
-            var gender = patient.gender;
-            var fname = '';
-            var lname = '';
-            if (typeof patient.name[0] !== 'undefined') {
-              fname = patient.name[0].given.join(' ');
-              lname = patient.name[0].family;
-            }
-            systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-            diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-            serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5');
-
-            p.birthdate = patient.birthDate;
-            p.gender = gender;
-            p.fname = fname;
-            p.lname = lname;
-
-            // Observations
-            p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-            p.bmi = getQuantityValueAndUnit(bmi[0]);
-
-
-             if (typeof systolicbp != 'undefined')  {
-               p.systolicbp = systolicbp;
-             }
-             if (typeof diastolicbp != 'undefined') {
-               p.diastolicbp = diastolicbp;
-             }
-            });
 
 
             //Conditions
