@@ -68,7 +68,7 @@
             systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5')
+            bmi = byCodes('39156-5');
 
             p.birthdate = patient.birthDate;
             p.gender = gender;
