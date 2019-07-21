@@ -68,6 +68,8 @@
           // Observations
           p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
+          console.log("BMI:");
+          console.log(byCodes('p.bmi'));
 
 
            if (typeof systolicbp != 'undefined')  {
