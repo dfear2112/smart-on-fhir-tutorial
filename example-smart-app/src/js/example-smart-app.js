@@ -43,7 +43,7 @@
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
-          var byCodes = smart.byCodes(his, 'code')};
+          var byCodes = smart.byCodes(his, 'code')});
 
           //Observations
         $.when(pt, obv).fail(onError);
@@ -59,7 +59,7 @@
             systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5')}
+            bmi = byCodes('39156-5')});
 
             //Conditions
         $.when(pt, con).fail(onError);
@@ -106,12 +106,13 @@
               p.fathercondition = getFatherCondition(his[1]);
 
               ret.resolve(p);
-            }
+            });
 
-        });
-      } else {
+        };
+       else {
         onError();
       }
+    }
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
