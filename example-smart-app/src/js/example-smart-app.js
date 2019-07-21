@@ -43,7 +43,7 @@
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
-          var byCodes = smart.byCodes(his, 'code')},
+          var byCodes = smart.byCodes(his, 'code')}
 
           //Observations
         $.when(pt, obv).fail(onError);
@@ -59,7 +59,7 @@
             systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
             diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
             serum_glucose = byCodes('2345-7');
-            bmi = byCodes('39156-5')},
+            bmi = byCodes('39156-5')}
 
             //Conditions
         $.when(pt, con).fail(onError);
@@ -74,43 +74,44 @@
 
               console.log('p:');
               console.log(p);
-          ret.resolve(p);
+
+              var p = defaultPatient();
+              p.birthdate = patient.birthDate;
+              p.gender = gender;
+              p.fname = fname;
+              p.lname = lname;
+
+              // Observations
+              p.height = getQuantityValueAndUnit(height[0]);
+              p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+              p.bmi = getQuantityValueAndUnit(bmi[0]);
+
+
+               if (typeof systolicbp != 'undefined')  {
+                 p.systolicbp = systolicbp;
+               }
+               if (typeof diastolicbp != 'undefined') {
+                 p.diastolicbp = diastolicbp;
+               }
+
+              //Conditions and Onset
+              p.condition = getCondition(con[0]);
+              p.onset = getOnset(con[0]);
+
+              //Family Member History
+              p.motherfamilymemberhistory = getMotherandCondition(his[0]);
+              p.mothercondition = getMotherCondition(his[0]);
+
+              p.father= getFather(his[1]);
+              p.fathercondition = getFatherCondition(his[1]);
+
+              ret.resolve(p);
+            }
+
         });
       } else {
         onError();
       }
-    //creating default patient
-    var p = defaultPatient();
-    p.birthdate = patient.birthDate;
-    p.gender = gender;
-    p.fname = fname;
-    p.lname = lname;
-
-    // Observations
-    p.height = getQuantityValueAndUnit(height[0]);
-    p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-    p.bmi = getQuantityValueAndUnit(bmi[0]);
-
-
-     if (typeof systolicbp != 'undefined')  {
-       p.systolicbp = systolicbp;
-     }
-     if (typeof diastolicbp != 'undefined') {
-       p.diastolicbp = diastolicbp;
-     }
-
-    //Conditions and Onset
-    p.condition = getCondition(con[0]);
-    p.onset = getOnset(con[0]);
-
-    //Family Member History
-    p.motherfamilymemberhistory = getMotherandCondition(his[0]);
-    p.mothercondition = getMotherCondition(his[0]);
-
-    p.father= getFather(his[1]);
-    p.fathercondition = getFatherCondition(his[1]);
-
-  }
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
 
