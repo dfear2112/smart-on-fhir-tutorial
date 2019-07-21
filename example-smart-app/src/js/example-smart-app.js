@@ -40,11 +40,20 @@
             }
           });
 
-
+        var p = defaultPatient();
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
           var byCodes = smart.byCodes(his, 'code')});
+
+          //Family Member History
+          
+          p.motherfamilymemberhistory = getMotherandCondition(his[0]);
+          p.mothercondition = getMotherCondition(his[0]);
+
+          p.father= getFather(his[1]);
+          p.fathercondition = getFatherCondition(his[1]);
+
 
           //Observations
         $.when(pt, obv).fail(onError);
@@ -62,48 +71,35 @@
             serum_glucose = byCodes('2345-7');
             bmi = byCodes('39156-5')});
 
+            p.birthdate = patient.birthDate;
+            p.gender = gender;
+            p.fname = fname;
+            p.lname = lname;
+
+            // Observations
+            p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
+            p.bmi = getQuantityValueAndUnit(bmi[0]);
+
+
+             if (typeof systolicbp != 'undefined')  {
+               p.systolicbp = systolicbp;
+             }
+             if (typeof diastolicbp != 'undefined') {
+               p.diastolicbp = diastolicbp;
+             }
+
             //Conditions
         $.when(pt, con).fail(onError);
         $.when(pt, con).done(function(patient, con) {
               var byCodes = smart.byCodes(con, 'code');
-              console.log("byCodes:");
-              console.log(con);
+
 
               condition = byCodes('44054006');
-              console.log("condition_variable: ");
-              console.log(condition)
-
-              console.log('p:');
-              console.log(p);
-
-              var p = defaultPatient();
-              p.birthdate = patient.birthDate;
-              p.gender = gender;
-              p.fname = fname;
-              p.lname = lname;
-
-              // Observations
-              p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
-              p.bmi = getQuantityValueAndUnit(bmi[0]);
-
-
-               if (typeof systolicbp != 'undefined')  {
-                 p.systolicbp = systolicbp;
-               }
-               if (typeof diastolicbp != 'undefined') {
-                 p.diastolicbp = diastolicbp;
-               }
 
               //Conditions and Onset
               p.condition = getCondition(con[0]);
               p.onset = getOnset(con[0]);
 
-              //Family Member History
-              p.motherfamilymemberhistory = getMotherandCondition(his[0]);
-              p.mothercondition = getMotherCondition(his[0]);
-
-              p.father= getFather(his[1]);
-              p.fathercondition = getFatherCondition(his[1]);
 
               ret.resolve(p);
             });
