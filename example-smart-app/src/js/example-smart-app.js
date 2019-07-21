@@ -43,7 +43,7 @@
         //History
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
-          var byCodes = smart.byCodes(his, 'code')}
+          var byCodes = smart.byCodes(his, 'code')};
 
           //Observations
         $.when(pt, obv).fail(onError);
