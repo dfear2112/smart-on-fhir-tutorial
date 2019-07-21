@@ -44,8 +44,6 @@
         $.when(pt, his).fail(onError);
         $.when(pt, his).done(function(patient, his) {
           var byCodes = smart.byCodes(his, 'code');
-          console.log("Family Member History:");
-          console.log(his)};
 
           //Observations
         $.when(pt, obv).fail(onError);
