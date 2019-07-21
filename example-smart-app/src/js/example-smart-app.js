@@ -13,6 +13,17 @@
         var his = smart.patient.api.fetchAll({
           type: 'FamilyMemberHistory'});
 
+
+          var con = smart.patient.api.fetchAll({
+            type: 'Condition',
+            query: {
+              code: {
+                $or: ['http://snomed.info/sct|44054006'
+                     ]
+              }
+            }
+          });
+
         var obv = smart.patient.api.fetchAll({
           type: 'Observation',
             query: {
@@ -24,16 +35,6 @@
                       'http://loinc.org|8462-4',
                       'http://loinc.org|2345-7',
                       'http://loinc.org|39156-5',
-                     ]
-              }
-            }
-          });
-
-          var con = smart.patient.api.fetchAll({
-            type: 'Condition',
-            query: {
-              code: {
-                $or: ['http://snomed.info/sct|44054006'
                      ]
               }
             }
