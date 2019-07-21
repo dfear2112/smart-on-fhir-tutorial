@@ -111,9 +111,12 @@
 
     p.father= getFather(his[1]);
     p.fathercondition = getFatherCondition(his[1]);
+
+  }
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
-  };
+
+};
   function defaultPatient(){
     return {
       fname: {value: ''},
