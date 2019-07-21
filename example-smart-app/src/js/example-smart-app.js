@@ -82,7 +82,6 @@
               p.lname = lname;
 
               // Observations
-              p.height = getQuantityValueAndUnit(height[0]);
               p.serum_glucose = getQuantityValueAndUnit(serum_glucose[0]);
               p.bmi = getQuantityValueAndUnit(bmi[0]);
 
