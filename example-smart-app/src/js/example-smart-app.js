@@ -236,8 +236,13 @@
           var jsonResponse = JSON.parse(data);
           console.log("jsonResponse: ")
           console.log(jsonResponse.associations[0].subject.label);
-          return jsonResponse.associations[0].subject.label;
-          console.log(xmlHttp.responseText);
+          var i;
+          for (i =0; 1 < jsonResponse.length; i++) {
+            genes += jsonResponse.associations[i] + "<br>";
+
+          }
+          return genes;
+          console.log(genes);
       }
   window.drawVisualization = function(p) {
     $('#holder').show();
