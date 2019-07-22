@@ -78,6 +78,7 @@
            if (typeof diastolicbp != 'undefined') {
              p.diastolicbp = diastolicbp;
            }
+           ret.resolve(p);
           });
 
         //History
