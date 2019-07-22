@@ -165,7 +165,7 @@
         typeof dad.relationship.coding[0].display != 'undefined'){
           return dad.relationship.coding[0].display ;
         } else {
-          return 'no known conditions';
+          return undefined;
         }
   }
 
@@ -176,7 +176,7 @@
       typeof dc.condition[0].code.text != 'undefined'){
         return dc.condition[0].code.text;
       } else {
-        return undefined;
+        return 'no known conditions';
       }
   }
   function getBloodPressureValue(BPObservations, typeOfPressure) {
