@@ -55,8 +55,8 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family;
           }
-          systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-          diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+          //systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
+          //diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           serum_glucose = byCodes('2345-7');
           bmi = byCodes('39156-5');
 
@@ -128,8 +128,8 @@
       condition: {value: ''},
       onset: {value:''},
       bmi: {value:''},
-      systolicbp: {value: ''},
-      diastolicbp: {value: ''},
+      //systolicbp: {value: ''},
+      //diastolicbp: {value: ''},
       serum_glucose: {value: ''},
       motherfamilymemberhistory: {value: ''},
       mothercondition: {value: ''},
@@ -228,8 +228,8 @@
     $('#birthdate').html(p.birthdate);
     $('#condition').html(p.condition);
     $('#onset').html(p.onset);
-    $('#systolicbp').html(p.systolicbp);
-    $('#diastolicbp').html(p.diastolicbp);
+    //$('#systolicbp').html(p.systolicbp);
+    //$('#diastolicbp').html(p.diastolicbp);
     $('#serum_glucose').html(p.serum_glucose);
     $('#bmi').html(p.bmi);
     $('#motherfamilymemberhistory').html(p.motherfamilymemberhistory);
