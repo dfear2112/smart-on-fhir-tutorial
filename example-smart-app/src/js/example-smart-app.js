@@ -235,11 +235,11 @@
           var data = xmlHttp.responseText;
           var jsonResponse = JSON.parse(data);
           console.log("jsonResponse: ")
-          console.log(jsonResponse);
+          console.log(jsonResponse.associations[0].subject.label);
           var i;
           var genes = '';
-          for (i =0; i <= 25; i++) {
-            genes += jsonResponse.associations[i].subject.label + " ";
+          for (i =0; i < 25; i++) {
+  genes += jsonResponse.associations[i].subject.label + " ";
 
           };
           console.log("genes: ");
