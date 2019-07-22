@@ -106,7 +106,8 @@
               p.condition = getCondition(con[0]);
               p.onset = getOnset(con[0]);
 
-
+              console.log('p:');
+              console.log(p);
               ret.resolve(p);
             });
 
@@ -117,7 +118,6 @@
     }
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
-
 };
   function defaultPatient(){
     return {
