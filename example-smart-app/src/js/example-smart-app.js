@@ -241,8 +241,10 @@
             genes += jsonResponse.associations[i] + "<br>";
 
           }
-          return genes;
+          console.log("genes: ");
           console.log(genes);
+          return genes;
+          
       }
   window.drawVisualization = function(p) {
     $('#holder').show();
