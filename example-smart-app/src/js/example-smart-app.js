@@ -79,7 +79,7 @@
 
            //gene Function
 
-           p.genes = httpGet('https://api.monarchinitiative.org/api/association/find?subject_taxon=NCBITaxon%3A9606&object=HP%3A0004904&graphize=false&unselect_evidence=true&start=0&rows=25&map_identifiers=NCBIGene');
+           p.genes = httpGet('https://api.monarchinitiative.org/api/association/find?subject_taxon=NCBITaxon%3A9606&object=HP%3A0004904&graphize=false&unselect_evidence=true&start=0&rows=25&map_identifiers=NCBIGene')+'\n';
            console.log('genes');
            console.log(p.genes);
            console.log('test:');
