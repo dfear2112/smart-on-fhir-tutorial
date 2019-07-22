@@ -238,13 +238,13 @@
           console.log(jsonResponse.associations[0].subject.label);
           var i;
           for (i =0; 1 < jsonResponse.length; i++) {
-            genes += jsonResponse.associations[i] + "<br>";
+            genes += jsonResponse.associations[i].subject.label + "<br>";
 
           }
           console.log("genes: ");
           console.log(genes);
           return genes;
-          
+
       }
   window.drawVisualization = function(p) {
     $('#holder').show();
