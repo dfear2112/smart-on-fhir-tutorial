@@ -72,12 +72,12 @@
           console.log(p.bmi);
 
 
-           if (typeof systolicbp != 'undefined')  {
-             p.systolicbp = systolicbp;
-           }
-           if (typeof diastolicbp != 'undefined') {
-             p.diastolicbp = diastolicbp;
-           }
+           // if (typeof systolicbp != 'undefined')  {
+           //   p.systolicbp = systolicbp;
+           // }
+           // if (typeof diastolicbp != 'undefined') {
+           //   p.diastolicbp = diastolicbp;
+           // }
            ret.resolve(p);
           });
 
