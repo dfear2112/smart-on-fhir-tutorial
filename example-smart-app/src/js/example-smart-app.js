@@ -165,7 +165,7 @@
         typeof dad.relationship.coding[0].display != 'undefined'){
           return dad.relationship.coding[0].display ;
         } else {
-          return undefined;
+          return 'no known conditions';
         }
   }
 
