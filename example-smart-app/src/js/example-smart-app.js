@@ -154,7 +154,7 @@
   function getMotherCondition (mo) {
     if (typeof mo != 'undefined' &&
         typeof mo.condition[0].code.text != 'undefined'){
-          return 'mother has history of' + mo.condition[0].code.text;
+          return 'mother has history of' + ' ' + mo.condition[0].code.text;
         } else {
           return 'mother has no known history of disease';
         }
