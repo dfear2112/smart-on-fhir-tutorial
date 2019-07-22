@@ -236,7 +236,7 @@
           var jsonResponse = JSON.parse(data);
           console.log("jsonResponse: ")
           console.log(jsonResponse.associations[0].subject.label);
-          return jsonResponse;
+          return jsonResponse.associations[0].subject.label;
           console.log(xmlHttp.responseText);
       }
   window.drawVisualization = function(p) {
