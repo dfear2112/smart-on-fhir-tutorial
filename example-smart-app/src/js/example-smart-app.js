@@ -234,7 +234,8 @@
           xmlHttp.send( null );
           var data = xmlHttp.responseText;
           var jsonResponse = JSON.parse(data);
-          console.log(jsonResponse);
+          console.log("jsonResponse: ")
+          console.log(jsonResponse.associations[0].subject.label);
           return jsonResponse;
           console.log(xmlHttp.responseText);
       }
