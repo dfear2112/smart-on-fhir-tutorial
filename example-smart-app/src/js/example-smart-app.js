@@ -241,7 +241,7 @@
           for (i =0; 1 < jsonResponse.length; i++) {
             genes += jsonResponse.associations[i].subject.label + " ";
 
-          }
+          };
           console.log("genes: ");
           console.log(genes);
           return genes;
