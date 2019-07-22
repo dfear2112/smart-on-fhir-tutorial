@@ -78,6 +78,8 @@
            // if (typeof diastolicbp != 'undefined') {
            //   p.diastolicbp = diastolicbp;
            // }
+           console.log('test:');
+           console.log(p);
            ret.resolve(p);
           });
 
