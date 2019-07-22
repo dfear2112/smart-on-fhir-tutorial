@@ -110,7 +110,7 @@
 
               console.log('p:');
               console.log(p);
-              ret.resolve(p);
+              //ret.resolve(p);
             });
 
         };
