@@ -156,7 +156,7 @@
         typeof mo.condition[0].code.text != 'undefined'){
           return mo.condition[0].code.text;
         } else {
-          return undefined;
+          return 'mother has no known history of disease';
         }
   }
 
@@ -176,7 +176,7 @@
       typeof dc.condition[0].code.text != 'undefined'){
         return dc.condition[0].code.text;
       } else {
-        return 'no known conditions';
+        return 'father has no known history of disease';
       }
   }
   function getBloodPressureValue(BPObservations, typeOfPressure) {
