@@ -78,6 +78,10 @@
            // if (typeof diastolicbp != 'undefined') {
            //   p.diastolicbp = diastolicbp;
            // }
+
+           //gene Function
+
+           p.genes = httpGet('https://api.monarchinitiative.org/api/association/find?subject_taxon=NCBITaxon%3A9606&object=HP%3A0004904&graphize=false&unselect_evidence=true&start=0&rows=25&map_identifiers=NCBIGene')
            console.log('test:');
            console.log(p);
            ret.resolve(p);
@@ -137,6 +141,7 @@
       mothercondition: {value: ''},
       father: {value: ''},
       fathercondition: {value: ''},
+      genes: {value: ''},
 
     };
   }
@@ -221,6 +226,15 @@
           return undefined;
         }
       }
+
+      function httpGet(theUrl)
+      {
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+          xmlHttp.send( null );
+          return xmlHttp.responseText;
+          console.log(xmlHttp.responseText);
+      }
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -238,5 +252,6 @@
     $('#mothercondition').html(p.mothercondition);
     $('#father').html(p.father);
     $('#fathercondition').html(p.fathercondition);
+    $('#genes').html(p.genes);
   };
 })(window);
