@@ -239,7 +239,7 @@
           var i;
           var genes = '';
           for (i =0; i <= 25; i++) {
-            genes += jsonResponse.associations[i].subject.label + "<br>";
+            genes += jsonResponse.associations[i].subject.label + " ";
 
           };
           console.log("genes: ");
