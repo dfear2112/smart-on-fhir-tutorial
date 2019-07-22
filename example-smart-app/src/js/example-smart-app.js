@@ -232,7 +232,10 @@
           var xmlHttp = new XMLHttpRequest();
           xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
           xmlHttp.send( null );
-          return xmlHttp.responseText;
+          var data = xmlHttp.responseText;
+          var jsonResponse = JSON.parse(data);
+          console.log(jsonResponse);
+          return jsonResponse;
           console.log(xmlHttp.responseText);
       }
   window.drawVisualization = function(p) {
