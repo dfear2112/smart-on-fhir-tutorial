@@ -244,7 +244,7 @@
             if (string_response.includes("[")){
               //skip
             }else{
-              if (string_response.includes("NM_"){
+              if (string_response.includes("NM_")){
                 variants+=string_response;
               }else{
                 genes +=string_response;
