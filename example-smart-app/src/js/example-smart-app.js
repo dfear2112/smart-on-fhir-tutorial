@@ -246,10 +246,10 @@
             if (string_response.includes("[")){
               //skip
             }
-            if (string_response.includes(",")){
+            else if (string_response.includes(",")){
               //skip
             }
-              else{
+            else{
               if (string_response.includes("NM_")){
                 variants+=string_response;
               }else{
