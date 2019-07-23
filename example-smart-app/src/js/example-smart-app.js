@@ -82,6 +82,7 @@
            p.genes = httpGet('https://api.monarchinitiative.org/api/association/find?subject_taxon=NCBITaxon%3A9606&object=HP%3A0004904&graphize=false&unselect_evidence=true&start=0&rows=25&map_identifiers=NCBIGene')+'\n';
            console.log('genes');
            console.log(p.genes);
+           p.variants = httpGetvariants('https://api.monarchinitiative.org/api/association/find?subject_taxon=NCBITaxon%3A9606&object=HP%3A0004904&graphize=false&unselect_evidence=true&start=0&rows=25&map_identifiers=NCBIGene')+'\n';
            console.log('test:');
            console.log(p);
            ret.resolve(p);
@@ -142,6 +143,7 @@
       father: {value: ''},
       fathercondition: {value: ''},
       genes: {value: ''},
+      variants: {value: ''},
 
     };
   }
@@ -260,6 +262,40 @@
           return genes;
 
       }
+
+      function httpGetvariants(theUrl)
+      {
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+          xmlHttp.send( null );
+          var data = xmlHttp.responseText;
+          var jsonResponse = JSON.parse(data);
+          console.log("jsonResponse: ")
+          console.log(jsonResponse.associations[0].subject.label);
+          var i;
+          var genes = '';
+          var variants='';
+          for (i =0; i < 25; i++) {
+            var string_response=jsonResponse.associations[i].subject.label + '<br>';
+            if (string_response.includes("[")){
+              //skip
+            }else{
+              if (string_response.includes("NM_")){
+                variants+=string_response;
+              }else{
+                genes +=string_response;
+              }
+            }
+            //genes += jsonResponse.associations[i].subject.label + '<br>';
+
+          };
+          console.log("genes: ");
+          console.log(genes);
+          console.log("variants: ");
+          console.log(variants);
+          return variants;
+
+      }
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -278,5 +314,6 @@
     $('#father').html(p.father);
     $('#fathercondition').html(p.fathercondition);
     $('#genes').html(p.genes);
+    $('#variants').html(p.variants);
   };
 })(window);
