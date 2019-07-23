@@ -241,7 +241,7 @@
           var variants='';
           for (i =0; i < 25; i++) {
             var string_response=jsonResponse.associations[i].subject.label + '<br>';
-            if (string_response.includes("[") or string_response.includes("]")){
+            if (string_response.includes("[")){
               //skip
             }else{
               if (string_response.includes("NM_"){
