@@ -275,7 +275,7 @@
           var i;
           var genes = '';
           var variants='';
-          for (i =0; i < 25; i++) {
+          for (i =0; i < 30; i++) {
             var string_response=jsonResponse.associations[i].subject.label + '<br>';
             if (string_response.includes("[")){
               //skip
