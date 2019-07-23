@@ -238,12 +238,23 @@
           console.log(jsonResponse.associations[0].subject.label);
           var i;
           var genes = '';
+          var variants='';
           for (i =0; i < 25; i++) {
-  genes += jsonResponse.associations[i].subject.label + '\n';
+            var string_response=jsonResponse.associations[i].subject.label + '<br>';
+            if !(string_response.includes("[") or string_response.includes("]")){
+              if (string_response.includes("NM_"){
+                variants+=string_response;
+              }else{
+                genes +=string_response;
+              }
+            }
+            //genes += jsonResponse.associations[i].subject.label + '<br>';
 
           };
           console.log("genes: ");
           console.log(genes);
+          console.log("variants: ");
+          console.log(variants);
           return genes;
 
       }
