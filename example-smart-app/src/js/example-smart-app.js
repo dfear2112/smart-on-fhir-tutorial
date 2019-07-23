@@ -279,7 +279,11 @@
             var string_response=jsonResponse.associations[i].subject.label + '<br>';
             if (string_response.includes("[")){
               //skip
-            }else{
+            }
+            if (string_response.includes(",")){
+              //skip
+            }
+              else{
               if (string_response.includes("NM_")){
                 variants+=string_response;
               }else{
