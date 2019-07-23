@@ -241,7 +241,7 @@
           var i;
           var genes = '';
           var variants='';
-          for (i =0; i < 25; i++) {
+          for (i =0; i < jsonResponse.associations.length; i++) {
             var string_response=jsonResponse.associations[i].subject.label + '<br>';
             if (string_response.includes("[")){
               //skip
@@ -275,7 +275,7 @@
           var i;
           var genes = '';
           var variants='';
-          for (i =0; i <= jsonResponse.associations.length; i++) {
+          for (i =0; i < jsonResponse.associations.length; i++) {
             var string_response=jsonResponse.associations[i].subject.label + '<br>';
             if (string_response.includes("[")){
               //skip
